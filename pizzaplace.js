@@ -1,3 +1,4 @@
+//fetch data penghubung file json ke html
 async function fetchData(){
     try{
     const response = await fetch ('pizza.json');
