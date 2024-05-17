@@ -27,7 +27,7 @@
 
 
 img{
-    widht: 100%;
+    width: 100%;
 }
 
 body{
@@ -35,12 +35,13 @@ body{
 }
 
 header{
-    position: fixed;
+    display: flex;
+    flex-wrap: nowrap;
+    position: static;
     width: 100%;
     top: 0;
     right: 0;
     z-index: 10;
-    display: flex;
     align-items: center;
     justify-content: space-between;
     background: #4b4040;
@@ -50,16 +51,18 @@ header{
 }
 
 header img{
+  display: flex;
     width: 60px;
     height: 60px;
 }
 
 header p{
+  position: static;
+  display: flex;
     width: 400px;
     height: 60px;
-    text-align: center;
     justify-content: center;
-    font-size: 40px;
+    font-size: 20px;
     color: #ffffff;
     background-color: #542d2d;
     background-size: 120px;
@@ -72,6 +75,7 @@ header p{
 }
 
 .navbar a{
+  display: flex;
     font-size: 1rem;
     font-weight: 500;
     color: #000;
@@ -79,46 +83,95 @@ header p{
 }
 
 .navbar a:hover{
+  display: flex;
     background: #f94747;
     border-radius: 5rem;
     color: #ffffff;
     transition: background 0.5s;
 }
 
+body{
+  background-color: #dcaeae;
+}
 
-
-.grid-container {
+.container-1 {
+  display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    left: 30%;
+    width: 40%;
+    height: 10%;
+    float: left;
     margin-top: 110px;
-    display: grid;
-    grid-template-columns: auto auto auto;
-    gap: 30px 30px;
+    box-sizing: border-box;
+    overflow: hidden;
+    border-radius: 30px;
+    gap: 2em;
     background-color: #2196F3;
     background-size: cover;
     padding: 20px;
-    align-content: center;
+    flex-wrap: wrap;
   }
   
-  .grid-container > div {
+  .container-1 > div {
     background-color: rgba(255, 255, 255, 0.8);
     text-align: center;
     padding: 20px 0;
     font-size: 30px;
   }
+
+
+
+  .container-2 {
+    display: flex;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      left: 30%;
+      width: 40%;
+      height: 10%;
+      float: left;
+      margin-top: 110px;
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: 30px;
+      gap: 2em;
+      background-color: #2196F3;
+      background-size: cover;
+      padding: 20px;
+      flex-wrap: wrap;
+    }
+    
+    .container-2 > div {
+      background-color: rgba(255, 255, 255, 0.8);
+      text-align: center;
+      padding: 20px 0;
+      font-size: 30px;
+    }
   
 
+
 .item2{
-    grid-row: 1;
+    flex-basis: 300px;
+    justify-content: center;
+    border-radius: 10px;
+    width: 40%;
+    height: 50%;
 }
 .item2 img{
-
-    margin-top: 20px;
+    margin-top: 70px;
     width: 200px;
     height: 200px;
     
   }
 
   .item3{
-    grid-row: 1;
+    flex-basis: 300px;
+    text-align: center;
+    border-radius: 10px;
+    width: 40%;
+    height: 50%;
   }
   .item3 img{
 
@@ -128,56 +181,35 @@ header p{
   }
 
   .item4{
-    grid-column: 1 ;
-    grid-row: 1;
+    position: relative;
+    flex-basis: 300px;
+    text-align: center;
+    border-radius: 10px;
+    width: 40%;
+    height: 50%;
   }
   .item4 img{
 
-    margin-top: 20px;
+    margin-top: 70px;
     width: 200px;
     height: 200px;
   }
 
 
   .item5{
-    align-content: center;
-    grid-column: 1;
-    grid-row: 2;
+    position: relative;
+    top: 0px;
+    flex-basis: 300px;
+    text-align: center;
+    border-radius: 10px;
+    width: 40%;
+    height: 50%;
   }
   .item5 img{
 
-   width: 200px;
-    height: 200px;
-
-  }
-
-
-  .item6{
-    align-content: center;
-    grid-row: 2;
-  }
-  .item6 img{
-
+    margin-top: 70px;
     width: 200px;
     height: 200px;
 
   }
-/* .profile{
-    display: flex;
-    align-items: center;
-    column-gap: 0.5rem;
-    cursor: pointer;
-}
 
-.profile img{
-  width: 40px;
-  height: 40px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 50%;    
-}
-
-.profile span{
-    font-size: 13px;
-    font-weight: 500;
-} */
