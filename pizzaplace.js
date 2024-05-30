@@ -12,7 +12,7 @@ fetch('pizza.json')
     const resetButton = document.getElementById('reset');
     const showDayButton = document.getElementById('showDay');
     const showMonthButton = document.getElementById('showMonth');
-    let totalRevenueChart, avgSalesChart, salesByTypeChart, salesByCategoryChart;
+    let totalRevenueChart, avgSalesChart, salesByTypeChart, salesByCategoryChart, ordersByDayChart;
     let isSortedAsc = true;
     let showPerDay = true;
 
@@ -111,16 +111,66 @@ fetch('pizza.json')
         }
       });
 
+      const orderingDayCount = filteredData.reduce((acc, item) => {
+    const day = new Date(item.date_order).getDay();
+    if (!acc[day]) acc[day] = 0;
+    acc[day]++;
+    return acc;
+  }, {});
+
+  const orderingDayNames = ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'];
+  const mostOrderedDay = Object.entries(orderingDayCount).reduce((max, [day, count]) => {
+    if (count > max[1]) return [day, count];
+    return max;
+  }, [null, 0]);
+
+  const ordersByDay = { 0: 0, 1: 0, 2: 0, 3: 0, 4: 0, 5: 0, 6: 0 };
+
+  filteredData.forEach(item => {
+    const day = new Date(item.date_order).getDay();
+    ordersByDay[day]++;
+  });
+
+  const orderingDayElem = document.getElementById('orderingDay');
+  orderingDayElem.textContent = mostOrderedDay[0] !== null
+    ? `${orderingDayNames[mostOrderedDay[0]]} (${mostOrderedDay[1]} orders)`
+    : 'No data available';
+
       // Update charts
       const ctxTotalRevenue = document.getElementById('totalRevenueChart').getContext('2d');
       const ctxAvgSales = document.getElementById('avgSalesChart').getContext('2d');
       const ctxSalesByType = document.getElementById('salesByTypeChart').getContext('2d');
       const ctxSalesByCategory = document.getElementById('salesByCategoryChart').getContext('2d');
+      const ctxOrdersByDay = document.getElementById('ordersByDayChart').getContext('2d');
 
       if (totalRevenueChart) totalRevenueChart.destroy();
       if (avgSalesChart) avgSalesChart.destroy();
       if (salesByTypeChart) salesByTypeChart.destroy();
       if (salesByCategoryChart) salesByCategoryChart.destroy();
+      if (ordersByDayChart) ordersByDayChart.destroy();
+
+      ordersByDayChart = new Chart(ctxOrdersByDay, {
+        type: 'bar',
+        data: {
+          labels: ['Minggu', 'Senin', 'Selasa', 'Rabu', 'Kamis', 'Jumat', 'Sabtu'],
+          datasets: [{
+            label: 'Orders by Day',
+            data: Object.values(ordersByDay),
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: {
+              beginAtZero: true
+            }
+          }
+        }
+      });
 
       totalRevenueChart = new Chart(ctxTotalRevenue, {
         type: 'bar',
@@ -213,6 +263,7 @@ fetch('pizza.json')
           }
         });
       }
+      
 
       const sortedSalesByType = Object.entries(salesByType)
         .sort((a, b) => isSortedAsc ? a[1] - b[1] : b[1] - a[1])
@@ -253,6 +304,7 @@ fetch('pizza.json')
           }
         }
       });
+      
 
       salesByCategoryChart = new Chart(ctxSalesByCategory, {
         type: 'pie',

@@ -27,6 +27,7 @@
     <p>Total Pizzas Sold: <span id="totalPizzasSold">0</span></p>
     <p>Average Sales per Day: <span id="avgSalesDay">$0</span></p>
     <p>Average Sales per Month: <span id="avgSalesMonth">$0</span></p>
+    <p>Ordering Day: <span id="orderingDay"></span></p>
     <input type="date" id="datePicker" min="2015-01-01" max="2015-12-31">
     <button id="sortAsc">Sort Ascending</button>
     <button id="sortDesc">Sort Descending</button>
@@ -55,6 +56,12 @@
         <canvas id="salesByTypeChart"></canvas>
       </div>
     </div>
+    <div class="chart-box">
+      <h3>Orders by Day</h3>
+      <div class="chart-container">
+          <canvas id="ordersByDayChart"></canvas>
+      </div>
+  </div>  
     <div class="chart-box">
       <h3>Sales by Category</h3>
       <div class="chart-container">
