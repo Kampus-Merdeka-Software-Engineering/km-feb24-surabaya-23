@@ -3,46 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza Place Sales Web</title>
-    
-    <!--Link ke CSS-->
-    <link rel="stylesheet" href="Style.css">
-    
-
+    <title>Tim 23 Pizza Sales</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!--Navbar-->
-    <header>
-        <img src="pizzapic.jpg" alt=""><p>Pizza Place Sale</p><br> <br><p>Team 23 Surabaya</p>
-
-        <ul class="navbar">
-            <li><a href="#home" class="home-active">Menu 1</a></li>
-            <li><a href="#kategori">Menu 2</a></li>
-            <li><a href="#produk">Menu 3</a></li>
-            <li><a href="#tentang">Menu 4</a></li>
-            <li><a href="#pelanggan">Menu 5</a></li>
-        </ul>
-
-    </header>
-
-    <div class="grid-container">
-        <div class="item2">chart 1 <br>
-            <img src="pizzapic.jpg" alt="">
+    <nav>
+        <div class="wrapper">
+            <div class="logo"><a href=''>TIM 23 PIZZA SALES</a></div>
+            <div class="menu">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#Insight">Insight</a></li>
+                    <li><a href="#Profile">Profile</a></li>
+                    <li><a href="" class="tbl-biru">Sign Up</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="item3">chart 2<br>
-            <img src="pizzapic.jpg" alt=""></div>  
-        <div class="item4">chart 3<br>
-            <img src="pizzapic.jpg" alt=""></div>
-        <div class="item5">chart 4<br>
-            <img src="pizzapic.jpg" alt=""></div>
-        <div class="item6">chart 5<br>
-                <img src="pizzapic.jpg" alt=""></div>
-      </div>
+    </nav>
+    <div class="wrapper">
+        <!-- untuk home -->
+        <section id="home">
+            <img src="assets/Pizza2.jpg"/>
+            <div class="kolom">
+                <p class="deskripsi">Welcome to the team 23 website</p>
+                <h2>Analisys Pizza Sales</h2>
+                <p>A food company that sold pizza in 2015 saw revenue drop by 7%. So how did Team 23 find a solution? Please read the insights on our website</p>
+                <p><a href="" class="tbl-pink">Full Data Set is here</a></p>
+            </div>
+        </section>
 
-<!--Link ke JavaScript-->
-    <script src="pizzaplace.js"></script>
-    
-    
+        <!-- untuk Insight -->
+        <section id="Insight">
+            <div class="kolom">
+                <h2>Insight</h2>
+                <p>Total Orders: <span id="totalOrders"></span></p>
+                <p>Total Revenue: $<span id="totalRevenue"></span></p>
+                <table id="averagePriceTable">
+                    <thead>
+                        <tr>
+                            <th>Pizza Type-ID</th>
+                            <th>Average Price</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data akan ditambahkan oleh JavaScript -->
+                    </tbody>
+                </table>
+                <h2>Order Quantity by Time Category</h2>
+                <canvas id="timeCategoryChart"></canvas>
+                <h2>Order Quantity by Day of the Week</h2>
+                <canvas id="dayOfWeekChart"></canvas> <!-- Chart baru untuk quantity berdasarkan hari -->
+            </div>
+        </section>
 
+        <!-- untuk profile -->
+        <section id="Profile">
+            <div class="tengah">
+                <div class="kolom">
+                    <h2>Profile Tim 23</h2>
+                    <p>If you don't know, you don't care, so just go straight to our profile</p>
+                </div>
+
+                <div class="foto-list">
+                    <div class="foto-user">
+                        <img src="assets/Ferdhi.jpg"/>
+                        <p>Ferdian M.R</p>
+                    </div>
+                    <!-- Tambahkan foto-foto profil lainnya sesuai kebutuhan -->
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer id="copyright">
+        <div class="wrapper">
+            &copy; 2024. <b>Tim 23</b> All Rights Reserved.
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="Style.js"></script>
 </body>
 </html>
