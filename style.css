@@ -150,7 +150,7 @@ nav ul li a {
 
 .analysis-section {
     background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
-    height: 3734px;
+    height: 5000px;
 }
 
 .filter-section {
@@ -369,4 +369,30 @@ footer form .submit-btn{
 footer .copyright{
     margin-top: 28px;
     color: #fff;
+}
+
+#averagePriceTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#averagePriceTable th, #averagePriceTable td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+#averagePriceTable th {
+    background-color: #FAC717;
+    color: #6B1110;
+    font-weight: bold;
+}
+
+#averagePriceTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#averagePriceTable tr:hover {
+    background-color: #ddd;
 }

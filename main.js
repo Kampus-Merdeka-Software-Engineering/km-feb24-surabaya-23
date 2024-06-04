@@ -170,6 +170,169 @@ function calculateSalesByQuarter(data) {
     return salesByQuarterData;
 }
 
+// Fungsi untuk menghitung harga rata-rata per jenis pizza
+function calculateAveragePricePerPizza(data) {
+    const pizzaTypes = {};
+    data.forEach(order => {
+        const pizzaType = order.pizza_id;
+        if (!pizzaTypes[pizzaType]) {
+            pizzaTypes[pizzaType] = {
+                totalPrice: 0,
+                totalQuantity: 0
+            };
+        }
+        pizzaTypes[pizzaType].totalPrice += parseFloat(order.price) * parseInt(order.quantity);
+        pizzaTypes[pizzaType].totalQuantity += parseInt(order.quantity);
+    });
+
+    const averagePrices = Object.entries(pizzaTypes).map(([pizzaType, data]) => ({
+        pizzaType,
+        averagePrice: data.totalPrice / data.totalQuantity
+    }));
+
+    return averagePrices;
+}
+
+// Fungsi untuk menampilkan tabel harga rata-rata
+function displayAveragePriceTable(data) {
+    const averagePrices = calculateAveragePricePerPizza(data);
+    const tableBody = document.querySelector('#averagePriceTable tbody');
+    tableBody.innerHTML = '';
+
+    averagePrices.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.pizzaType}</td>
+            <td>$${item.averagePrice.toFixed(2)}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+// Modifikasi fungsi displayAveragePriceTable dalam file main.js
+
+// Fungsi untuk mengurutkan dan membatasi data
+function sortAndLimitData(data, limit) {
+    return data.sort((a, b) => b.averagePrice - a.averagePrice).slice(0, limit);
+}
+
+// Fungsi untuk menampilkan tabel harga rata-rata
+function displayAveragePriceTable(data) {
+    const averagePrices = calculateAveragePricePerPizza(data);
+    const topAveragePrices = sortAndLimitData(averagePrices, 10); // Ambil 10 teratas
+    const tableBody = document.querySelector('#averagePriceTable tbody');
+    tableBody.innerHTML = '';
+
+    topAveragePrices.forEach(item => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.pizzaType}</td>
+            <td>$${item.averagePrice.toFixed(2)}</td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+// Panggil fungsi ini setelah data dimuat
+document.addEventListener("DOMContentLoaded", function () {
+    fetch('pizza.json')
+        .then(response => response.json())
+        .then(data => {
+            // ... kode untuk menampilkan chart ...
+
+            // Tambahkan ini untuk menampilkan tabel harga rata-rata
+            displayAveragePriceTable(data);
+        })
+});
+
+// Tambahkan fungsi ini di file main.js
+
+// Fungsi untuk mendapatkan nama hari dari tanggal
+function getDayOfWeek(dateString) {
+    const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+    const date = new Date(dateString);
+    return days[date.getDay()];
+}
+
+// Fungsi untuk menghitung total pesanan per hari
+function calculateOrdersByDay(data) {
+    const ordersByDay = {
+        'Monday': 0,
+        'Tuesday': 0,
+        'Wednesday': 0,
+        'Thursday': 0,
+        'Friday': 0,
+        'Saturday': 0,
+        'Sunday': 0
+    };
+
+    data.forEach(order => {
+        const day = getDayOfWeek(order.date_order);
+        ordersByDay[day] += parseInt(order.quantity);
+    });
+
+    const labels = Object.keys(ordersByDay);
+    const values = Object.values(ordersByDay);
+
+    const ordersByDayData = {
+        labels: labels,
+        datasets: [{
+            label: 'Orders by Day of Week',
+            data: values,
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+                'rgba(199, 199, 199, 0.6)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(159, 159, 159, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    return ordersByDayData;
+}
+
+// Modifikasi fungsi displayAveragePriceTable untuk memasukkan data hari
+document.addEventListener("DOMContentLoaded", function () {
+    fetch('pizza.json')
+        .then(response => response.json())
+        .then(data => {
+            // ... kode untuk chart lainnya ...
+
+            // Tambahkan chart untuk Orders by Day of Week
+            const ordersByDayData = calculateOrdersByDay(data);
+            const ordersByDayChart = new Chart(document.getElementById('ordersByDayChart'), {
+                type: 'bar',
+                data: ordersByDayData,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Total Quantity'
+                            }
+                        }
+                    }
+                }
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+});
+
 // Fungsi untuk menghitung penjualan berdasarkan waktu
 function calculateSalesByTime(data) {
     // Inisialisasi objek untuk menyimpan total penjualan untuk masing-masing kategori waktu
@@ -270,6 +433,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 const filter = event.target.value;
                 updateCharts(filter, data);
             });
+
 
             function updateCharts(filter, data) {
                 switch (filter) {
