@@ -150,7 +150,8 @@ nav ul li a {
 
 .analysis-section {
     background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
-    height: 5000px;
+    height: 100%;
+    padding-bottom: 7% ;
 }
 
 .filter-section {
