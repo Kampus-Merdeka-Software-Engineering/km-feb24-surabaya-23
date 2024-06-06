@@ -145,30 +145,57 @@ nav ul li a {
     padding-bottom: 7%;
 }
 
-.filter-section {
-    margin: 20px;
-    text-align: center;
+.filter-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 
-.filter-section label {
-    font-size: 1.2em;
-    margin-right: 10px;
+.filter-container label {
+    display: inline-block;
+    background-color: #ec8c26;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.filter-section select {
-    padding: 10px;
-    font-size: 1em;
-    color: #6B1110;
-    border-radius: 12px;
-    border: 1px solid #ddd;
-    background-color: #FAC717;
-    outline: none;
-    transition: border-color 0.3s;
+.filter-container label:hover {
+    background-color: #ff6600;
 }
 
-.filter-section select:focus {
-    border-color: none;
+.filter-container input[type="date"],
+.filter-container button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
 }
+
+.filter-container input[type="date"]:hover,
+.filter-container button:hover {
+    background-color: #e0e0e0;
+}
+
+.filter-container input[type="date"]::-webkit-calendar-picker-indicator {
+    background-color: transparent;
+    filter: invert(0.7);
+}
+
+.filter-container button {
+    background-color: #af4c4c;
+    color: white;
+}
+
+.filter-container button:hover {
+    background-color: #ff0000;
+}
+
+.filter-container button:active {
+    background-color: #ff0000;
+}
+
 
 #salesByCategoryChart,
 #top3HighestSalesChart,
@@ -214,7 +241,7 @@ table {
     width: 50%;
     border-collapse: collapse;
     margin-top: 20px;
-    background-color: #fff;
+    background-color: #ffffff;
 }
 
 table, th, td {
@@ -241,7 +268,7 @@ th, td {
 }
 
 #pagination button.active {
-    background-color: #007bff;
+    background-color: #ff2600;
     color: #fff;
     border: 1px solid #007bff;
 }
