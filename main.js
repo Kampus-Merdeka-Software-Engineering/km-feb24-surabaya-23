@@ -429,117 +429,150 @@ function calculateSalesBySize(data) {
 }
 
 
-// Menggunakan Fetch API untuk mendapatkan data dari pizza.json dan membangun dashboard
 document.addEventListener("DOMContentLoaded", function () {
+    let originalData = [];
+    let salesByCategoryChart, top3HighestSalesChart, top3LowestSalesChart, salesByQuarterChart, salesByTimeChart, salesBySizeChart;
+    let currentPage = 1;
+    const itemsPerPage = 10;
+
     fetch('pizza.json')
         .then(response => response.json())
         .then(data => {
-            const salesByCategoryData = calculateSalesByCategory(data);
-            const top3HighestSalesData = calculateTop3HighestSales(data);
-            const top3LowestSalesData = calculateTop3LowestSales(data);
-            const salesByQuarterData = calculateSalesByQuarter(data);
-            const salesByTimeData = calculateSalesByTime(data);
-            const sizeSales = calculateSalesBySize(data);
+            originalData = data.slice(0, 100); // Batasi data hingga 100 item
+            updateDashboard(originalData);
 
-            const salesByCategoryChart = new Chart(document.getElementById('salesByCategoryChart'), {
+            document.getElementById('applyFilter').addEventListener('click', function () {
+                const startDate = new Date(document.getElementById('startDate').value);
+                const endDate = new Date(document.getElementById('endDate').value);
+                const filteredData = originalData.filter(order => {
+                    const orderDate = new Date(order.date_order);
+                    return orderDate >= startDate && orderDate <= endDate;
+                });
+                updateDashboard(filteredData);
+            });
+
+            document.getElementById('resetFilter').addEventListener('click', function () {
+                updateDashboard(originalData);
+            });
+
+            // Add event listeners for checkboxes
+            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.addEventListener('change', function () {
+                    updateDashboard(originalData);
+                });
+            });
+        })
+        .catch(error => console.error('Error fetching data:', error));
+
+    function updateDashboard(data) {
+        if (salesByCategoryChart) salesByCategoryChart.destroy();
+        if (top3HighestSalesChart) top3HighestSalesChart.destroy();
+        if (top3LowestSalesChart) top3LowestSalesChart.destroy();
+        if (salesByQuarterChart) salesByQuarterChart.destroy();
+        if (salesByTimeChart) salesByTimeChart.destroy();
+        if (salesBySizeChart) salesBySizeChart.destroy();
+
+        if (document.getElementById('filterSalesByCategory').checked) {
+            const salesByCategoryData = calculateSalesByCategory(data);
+            salesByCategoryChart = new Chart(document.getElementById('salesByCategoryChart'), {
                 type: 'bar',
                 data: salesByCategoryData,
                 options: { responsive: true, maintainAspectRatio: false }
             });
+        }
 
-            const top3HighestSalesChart = new Chart(document.getElementById('top3HighestSalesChart'), {
+        if (document.getElementById('filterTop3HighestSales').checked) {
+            const top3HighestSalesData = calculateTop3HighestSales(data);
+            top3HighestSalesChart = new Chart(document.getElementById('top3HighestSalesChart'), {
                 type: 'bar',
                 data: top3HighestSalesData,
                 options: { responsive: true, maintainAspectRatio: false }
             });
+        }
 
-            const top3LowestSalesChart = new Chart(document.getElementById('top3LowestSalesChart'), {
+        if (document.getElementById('filterTop3LowestSales').checked) {
+            const top3LowestSalesData = calculateTop3LowestSales(data);
+            top3LowestSalesChart = new Chart(document.getElementById('top3LowestSalesChart'), {
                 type: 'bar',
                 data: top3LowestSalesData,
                 options: { responsive: true, maintainAspectRatio: false }
             });
+        }
 
-            const salesByQuarterChart = new Chart(document.getElementById('salesByQuarterChart'), {
+        if (document.getElementById('filterSalesByQuarter').checked) {
+            const salesByQuarterData = calculateSalesByQuarter(data);
+            salesByQuarterChart = new Chart(document.getElementById('salesByQuarterChart'), {
                 type: 'bar',
                 data: salesByQuarterData,
                 options: { responsive: true, maintainAspectRatio: false }
             });
+        }
 
-            const salesByTimeChart = new Chart(document.getElementById('salesByTimeChart'), {
+        if (document.getElementById('filterSalesByTime').checked) {
+            const salesByTimeData = calculateSalesByTime(data);
+            salesByTimeChart = new Chart(document.getElementById('salesByTimeChart'), {
                 type: 'bar',
                 data: salesByTimeData,
                 options: { responsive: true, maintainAspectRatio: false }
             });
+        }
 
-            const salesBySizeChart = new Chart(document.getElementById('salesBySizeChart'), {
-                type: 'doughnut',
+        if (document.getElementById('filterSalesBySize').checked) {
+            const sizeSales = calculateSalesBySize(data);
+            salesBySizeChart = new Chart(document.getElementById('salesBySizeChart'), {
+                type: 'pie',
                 data: sizeSales,
-                option: { responsive: true, maintainAspectRatio: false}
+                options: { responsive: true, maintainAspectRatio: false }
             });
+        }
 
+        displayTable(data);
+    }
 
-            document.getElementById('filter').addEventListener('change', function (event) {
-                const filter = event.target.value;
-                updateCharts(filter, data);
+    function displayTable(data) {
+        const tableBody = document.querySelector('#dataTable tbody');
+        tableBody.innerHTML = '';
+
+        const paginatedData = paginate(data, currentPage, itemsPerPage);
+        paginatedData.forEach(item => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.order_id}</td>
+                <td>${item.pizza_id}</td>
+                <td>${item.quantity}</td>
+                <td>$${item.price}</td>
+                <td>${item.date_order}</td>
+                <td>${item.time_order}</td>
+                <td>${item.size}</td>
+                <td>${item.category}</td>
+            `;
+            tableBody.appendChild(row);
+        });
+
+        setupPagination(data);
+    }
+
+    function paginate(array, page, perPage) {
+        return array.slice((page - 1) * perPage, page * perPage);
+    }
+
+    function setupPagination(data) {
+        const pagination = document.getElementById('pagination');
+        pagination.innerHTML = '';
+
+        const totalPages = Math.ceil(data.length / itemsPerPage);
+
+        for (let i = 1; i <= totalPages; i++) {
+            const pageButton = document.createElement('button');
+            pageButton.textContent = i;
+            if (i === currentPage) {
+                pageButton.classList.add('active');
+            }
+            pageButton.addEventListener('click', function () {
+                currentPage = i;
+                displayTable(data);
             });
-
-
-            function updateCharts(filter, data) {
-                switch (filter) {
-                    case 'all':
-                        updateChart(salesByCategoryChart, calculateSalesByCategory(data));
-                        updateChart(top3HighestSalesChart, calculateTop3HighestSales(data));
-                        updateChart(top3LowestSalesChart, calculateTop3LowestSales(data));
-                        updateChart(salesByQuarterChart, calculateSalesByQuarter(data));
-                        updateChart(salesByTimeChart, calculateSalesByTime(data));
-                        break;
-                    case 'total-sales':
-                        updateChart(salesByCategoryChart, calculateSalesByCategory(data));
-                        hideChart(top3HighestSalesChart);
-                        hideChart(top3LowestSalesChart);
-                        hideChart(salesByQuarterChart);
-                        hideChart(salesByTimeChart);
-                        break;
-                    case 'category':
-                        updateChart(salesByCategoryChart, calculateSalesByCategory(data));
-                        hideChart(top3HighestSalesChart);
-                        hideChart(top3LowestSalesChart);
-                        hideChart(salesByQuarterChart);
-                        hideChart(salesByTimeChart);
-                        break;
-                        case 'highest-sales':
-                            hideChart(salesByCategoryChart);
-                            updateChart(top3HighestSalesChart, calculateTop3HighestSales(data));
-                            hideChart(top3LowestSalesChart);
-                            hideChart(salesByQuarterChart);
-                            hideChart(salesByTimeChart);
-                            break;
-                        case 'lowest-sales':
-                            hideChart(salesByCategoryChart);
-                            hideChart(top3HighestSalesChart);
-                            updateChart(top3LowestSalesChart, calculateTop3LowestSales(data));
-                            hideChart(salesByQuarterChart);
-                            hideChart(salesByTimeChart);
-                            break;
-                        case 'average-price':
-                            hideChart(salesByCategoryChart);
-                            hideChart(top3HighestSalesChart);
-                            hideChart(top3LowestSalesChart);
-                            updateChart(salesByQuarterChart, calculateSalesByQuarter(data));
-                            hideChart(salesByTimeChart);
-                            break;
-                        case 'sales-by-time':
-                            hideChart(salesByCategoryChart);
-                            hideChart(top3HighestSalesChart);
-                            hideChart(top3LowestSalesChart);
-                            hideChart(salesByQuarterChart);
-                            updateChart(salesByTimeChart, calculateSalesByTime(data));
-                            break;
-                        default:
-                            break;
-                    }
-                }
-            })
-            .catch(error => console.error('Error fetching data:', error));
-    });
-    
+            pagination.appendChild(pageButton);
+        }
+    }
+});
