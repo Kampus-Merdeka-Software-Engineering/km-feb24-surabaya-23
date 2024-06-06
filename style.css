@@ -1,15 +1,16 @@
-:root{
-    --dark-red-color: #6B1110
-    --light-red-color: #B53736
-    --yellow-color: #FAC717
-    --dark-blue-color: #023047
+:root {
+    --dark-red-color: #6B1110;
+    --light-red-color: #B53736;
+    --yellow-color: #FAC717;
+    --dark-blue-color: #023047;
 }
 
 *,
-*::after
-*::before{
+*::after,
+*::before {
     box-sizing: border-box;
 }
+
 body {
     margin: 0;
     font-family: "Raleway", sans-serif;
@@ -38,9 +39,6 @@ footer {
     font-size: 14px;
     text-decoration: none;
 }
-
-
-/* Header */
 
 header {
     background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
@@ -83,8 +81,6 @@ nav ul li a {
     text-decoration: none;
 }
 
-/* Hero Section */
-
 .hero-section {
     display: flex;
     height: 100vh;
@@ -103,64 +99,50 @@ nav ul li a {
     color: #fff;
 }
 
-.hero-section .left p{
+.hero-section .left p {
     font-family: "Poppins", sans-serif;
     font-style: normal;
     font-size: 16px;
     line-height: 200%;
     color: #fff;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 
-.hero-section .left{
+.hero-section .left {
     width: 457px;
 }
 
-.hero-section .right{
+.hero-section .right {
     align-self: flex-end;
 }
 
-.hero-section .right img{
-    height: 300;
+.hero-section .right img {
+    height: 300px;
     vertical-align: middle;
 }
-
-/* The Revenue Section */
 
 .content .chart-box img {
     padding-top: 120px;
 }
 
-.content .description h2{
+.content .description h2 {
     color: #b53736;
     padding-left: 25px;
 }
 
-.content .description p{
+.content .description p {
     color: #b53736;
     padding-left: 25px;
 }
 
-.content::before a{
+.content::before a {
     padding: 75px;
 }
-
-/* Analysis section */
-
 
 .analysis-section {
     background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
     height: 100%;
-    padding-bottom: 7% ;
-}
-
-.filter-section {
-    margin: 20px;
-    text-align: center;
-}
-
-.filter-section filter{
-    font-family: "Poppins";
+    padding-bottom: 7%;
 }
 
 .filter-section {
@@ -182,14 +164,19 @@ nav ul li a {
     background-color: #FAC717;
     outline: none;
     transition: border-color 0.3s;
-    -webkit-border-radius: 12px;
-    -moz-border-radius: 12px;
-    -ms-border-radius: 12px;
-    -o-border-radius: 12px;
 }
 
 .filter-section select:focus {
     border-color: none;
+}
+
+#salesByCategoryChart,
+#top3HighestSalesChart,
+#top3LowestSalesChart,
+#salesByQuarterChart,
+#salesByTimeChart,
+#ordersByDayChart {
+    display: none;
 }
 
 .chart-section {
@@ -217,10 +204,47 @@ nav ul li a {
     display: block;
     text-align: center;
 }
-canvas{
+
+canvas {
     height: 10px;
 }
 
+table {
+    margin: 0 auto;
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: #fff;
+}
+
+table, th, td {
+    border: 1px solid black;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    background-color: #fff;
+}
+
+#pagination {
+    margin-top: 10px;
+    text-align: center;
+}
+
+#pagination button {
+    padding: 5px 10px;
+    margin: 0 2px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    cursor: pointer;
+}
+
+#pagination button.active {
+    background-color: #007bff;
+    color: #fff;
+    border: 1px solid #007bff;
+}
 
 label {
     color: #fff;
@@ -229,6 +253,7 @@ label {
     font-size: 16px;
     font-weight: bold;
 }
+
 .analysis-section .light-heading {
     color: #fff;
     padding-top: 25px;
@@ -236,7 +261,7 @@ label {
     text-align: center;
 }
 
-.analysis-section .btn{
+.analysis-section .btn {
     width: 140px;
     position: relative;
     align-items: center;
@@ -244,47 +269,47 @@ label {
     left: 50px;
 }
 
-.analysis-section .info h3{
+.analysis-section .info h3 {
     color: #fff;
     padding-left: 25px;
 }
 
-.analysis-section .info::before{
+.analysis-section .info::before {
     padding-left: 25px;
 }
 
-.analysis-section .chart-container img{
+.analysis-section .chart-container img {
     padding-top: 63px;
 }
 
-.analysis-section .chart-box-rectangle-bottom img{
+.analysis-section .chart-box-rectangle-bottom img {
     padding-top: 63px;
 }
 
-/* End of analysis section */
-#team-section{
+#team-section {
     display: grid;
     align-items: center;
     justify-content: center;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
+
 #team-section .team-card {
     display: flex;
 }
 
-#team-section .team-card .info h4{
+#team-section .team-card .info h4 {
     font-family: "Raleway", sans-serif;
     font-size: 24px;
     line-height: 120%;
-    color: #6b1110
+    color: #6b1110;
 }
 
-.team-section .team-card .info{
+.team-section .team-card .info {
     padding: 24px;
 }
 
-.team-section .team-card .info p{
+.team-section .team-card .info p {
     font-family: "Raleway",sans-serif;
     font-weight: normal;
     font-size: 18px;
@@ -292,70 +317,62 @@ label {
     color: #6b1110;
 }
 
-/* End of analysis section */
-
-/* Footer */
-
 footer {
     background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
     margin-top: 100px;
     padding: 70px 0px;
 }
 
-footer a{
+footer a {
     text-decoration: none;
-    color: #fff ;
+    color: #fff;
 }
 
-footer h3{
-    color: #FAC717
+footer h3 {
+    color: #FAC717;
 }
 
-footer ul{
+footer ul {
     list-style: none;
     padding-left: 20px;
 }
 
-footer il li{
+footer il li {
     margin: 16px 0;
 }
 
-footer .links-container{
-    display:grid;
+footer .links-container {
+    display: grid;
     grid-template-columns: 2fr 2fr 3fr;
 }
 
-footer .social{
+footer .social {
     margin-left: 20px;
 }
 
-footer.social a{
+footer.social a {
     margin: 28px;
 }
 
-footer form{
+footer form {
     margin-left: 20px;
     margin-top: 16px;
     position: relative;
 }
 
-footer form input{
+footer form input {
     font-family: "Poppins", sans-serif;
     font-weight: normal;
     font-size: 16px;
     line-height: 200%;
-    border-radius:8px;
+    border-radius: 8px;
     color: black;
-    -webkit-border-radius:8px;
-    -moz-border-radius:8px;
-    -ms-border-radius:8px;
-    -o-border-radius:8px;
-    padding:8px 32px;
+    padding: 8px 32px;
     border: none;
     width: 100%;
 }
 
-footer form .submit-btn{
+footer form .submit-btn {
     position: absolute;
     right: 5px;
     top: 50%;
@@ -368,14 +385,10 @@ footer form .submit-btn{
     font-weight: normal;
     font-size: 16px;
     color: #fff;
-    -webkit-transform: translateY(-50%);
-    -moz-transform: translateY(-50%);
-    -ms-transform: translateY(-50%);
-    -o-transform: translateY(-50%);
     cursor: pointer;
 }
 
-footer .copyright{
+footer .copyright {
     margin-top: 28px;
     color: #fff;
 }
