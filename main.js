@@ -41,7 +41,7 @@ function calculateSalesByCategory(data) {
 function calculateTop3HighestSales(data) {
     const pizzaSales = {};
     data.forEach(order => {
-        const pizzaType = order.pizza_id;
+        const pizzaType = order.pizza_type_id;
         if (pizzaSales[pizzaType]) {
             pizzaSales[pizzaType] += parseFloat(order.price) * parseInt(order.quantity);
         } else {
@@ -82,7 +82,7 @@ function calculateTop3HighestSales(data) {
 function calculateTop3LowestSales(data) {
     const pizzaSales = {};
     data.forEach(order => {
-        const pizzaType = order.pizza_id;
+        const pizzaType = order.pizza_type_id;
         if (pizzaSales[pizzaType]) {
             pizzaSales[pizzaType] += parseFloat(order.price) * parseInt(order.quantity);
         } else {
@@ -174,7 +174,7 @@ function calculateSalesByQuarter(data) {
 function calculateAveragePricePerPizza(data) {
     const pizzaTypes = {};
     data.forEach(order => {
-        const pizzaType = order.pizza_id;
+        const pizzaType = order.pizza_type_id;
         if (!pizzaTypes[pizzaType]) {
             pizzaTypes[pizzaType] = {
                 totalPrice: 0,
