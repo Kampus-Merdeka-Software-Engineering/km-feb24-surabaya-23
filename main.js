@@ -432,14 +432,17 @@ function calculateSalesBySize(data) {
 document.addEventListener("DOMContentLoaded", function () {
     let originalData = [];
     let salesByCategoryChart, top3HighestSalesChart, top3LowestSalesChart, salesByQuarterChart, salesByTimeChart, salesBySizeChart;
+
+    // Variables for pagination
     let currentPage = 1;
-    const itemsPerPage = 10;
+    const itemsPerPage = 10; // Change as needed
+    const maxPages = 10;
 
     fetch('pizza.json')
         .then(response => response.json())
         .then(data => {
-            originalData = data.slice(0, 100); // Batasi data hingga 100 item
-            updateDashboard(originalData);
+            originalData = data;
+            updateDashboard(data);
 
             document.getElementById('applyFilter').addEventListener('click', function () {
                 const startDate = new Date(document.getElementById('startDate').value);
@@ -526,6 +529,7 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         }
 
+        // Display table with appropriate pagination
         displayTable(data);
     }
 
@@ -561,14 +565,14 @@ document.addEventListener("DOMContentLoaded", function () {
         pagination.innerHTML = '';
 
         const totalPages = Math.ceil(data.length / itemsPerPage);
+        const displayedPages = Math.min(totalPages, maxPages);
 
-        for (let i = 1; i <= totalPages; i++) {
+        for (let i = 1; i <= displayedPages; i++) {
             const pageButton = document.createElement('button');
             pageButton.textContent = i;
-            if (i === currentPage) {
-                pageButton.classList.add('active');
-            }
-            pageButton.addEventListener('click', function () {
+            pageButton.classList.add('page');
+            if (i === currentPage) pageButton.classList.add('active');
+            pageButton.addEventListener('click', () => {
                 currentPage = i;
                 displayTable(data);
             });
