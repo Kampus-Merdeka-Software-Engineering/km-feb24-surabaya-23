@@ -432,10 +432,8 @@ function calculateSalesBySize(data) {
 document.addEventListener("DOMContentLoaded", function () {
     let originalData = [];
     let salesByCategoryChart, top3HighestSalesChart, top3LowestSalesChart, salesByQuarterChart, salesByTimeChart, salesBySizeChart;
-
-    // Variables for pagination
     let currentPage = 1;
-    const itemsPerPage = 10; // Change as needed
+    const itemsPerPage = 10; // Ubah sesuai kebutuhan
     const maxPages = 10;
 
     fetch('pizza.json')
@@ -455,81 +453,59 @@ document.addEventListener("DOMContentLoaded", function () {
             });
 
             document.getElementById('resetFilter').addEventListener('click', function () {
+                document.getElementById('startDate').value = ''; // Kosongkan input tanggal mulai
+                document.getElementById('endDate').value = ''; // Kosongkan input tanggal akhir
                 updateDashboard(originalData);
-            });
-
-            // Add event listeners for checkboxes
-            document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
-                checkbox.addEventListener('change', function () {
-                    updateDashboard(originalData);
-                });
             });
         })
         .catch(error => console.error('Error fetching data:', error));
 
     function updateDashboard(data) {
-        if (salesByCategoryChart) salesByCategoryChart.destroy();
-        if (top3HighestSalesChart) top3HighestSalesChart.destroy();
-        if (top3LowestSalesChart) top3LowestSalesChart.destroy();
-        if (salesByQuarterChart) salesByQuarterChart.destroy();
-        if (salesByTimeChart) salesByTimeChart.destroy();
-        if (salesBySizeChart) salesBySizeChart.destroy();
+        destroyCharts(); // Hancurkan grafik yang ada jika ada
 
-        if (document.getElementById('filterSalesByCategory').checked) {
-            const salesByCategoryData = calculateSalesByCategory(data);
-            salesByCategoryChart = new Chart(document.getElementById('salesByCategoryChart'), {
-                type: 'bar',
-                data: salesByCategoryData,
-                options: { responsive: true, maintainAspectRatio: false }
-            });
-        }
+        // Tampilkan grafik dan tabel dengan data tanpa filter
+        const salesByCategoryData = calculateSalesByCategory(data);
+        salesByCategoryChart = new Chart(document.getElementById('salesByCategoryChart'), {
+            type: 'bar',
+            data: salesByCategoryData,
+            options: { responsive: true, maintainAspectRatio: false }
+        });
 
-        if (document.getElementById('filterTop3HighestSales').checked) {
-            const top3HighestSalesData = calculateTop3HighestSales(data);
-            top3HighestSalesChart = new Chart(document.getElementById('top3HighestSalesChart'), {
-                type: 'bar',
-                data: top3HighestSalesData,
-                options: { responsive: true, maintainAspectRatio: false }
-            });
-        }
+        const top3HighestSalesData = calculateTop3HighestSales(data);
+        top3HighestSalesChart = new Chart(document.getElementById('top3HighestSalesChart'), {
+            type: 'bar',
+            data: top3HighestSalesData,
+            options: { responsive: true, maintainAspectRatio: false }
+        });
 
-        if (document.getElementById('filterTop3LowestSales').checked) {
-            const top3LowestSalesData = calculateTop3LowestSales(data);
-            top3LowestSalesChart = new Chart(document.getElementById('top3LowestSalesChart'), {
-                type: 'bar',
-                data: top3LowestSalesData,
-                options: { responsive: true, maintainAspectRatio: false }
-            });
-        }
+        const top3LowestSalesData = calculateTop3LowestSales(data);
+        top3LowestSalesChart = new Chart(document.getElementById('top3LowestSalesChart'), {
+            type: 'bar',
+            data: top3LowestSalesData,
+            options: { responsive: true, maintainAspectRatio: false }
+        });
 
-        if (document.getElementById('filterSalesByQuarter').checked) {
-            const salesByQuarterData = calculateSalesByQuarter(data);
-            salesByQuarterChart = new Chart(document.getElementById('salesByQuarterChart'), {
-                type: 'bar',
-                data: salesByQuarterData,
-                options: { responsive: true, maintainAspectRatio: false }
-            });
-        }
+        const salesByQuarterData = calculateSalesByQuarter(data);
+        salesByQuarterChart = new Chart(document.getElementById('salesByQuarterChart'), {
+            type: 'bar',
+            data: salesByQuarterData,
+            options: { responsive: true, maintainAspectRatio: false }
+        });
 
-        if (document.getElementById('filterSalesByTime').checked) {
-            const salesByTimeData = calculateSalesByTime(data);
-            salesByTimeChart = new Chart(document.getElementById('salesByTimeChart'), {
-                type: 'bar',
-                data: salesByTimeData,
-                options: { responsive: true, maintainAspectRatio: false }
-            });
-        }
+        const salesByTimeData = calculateSalesByTime(data);
+        salesByTimeChart = new Chart(document.getElementById('salesByTimeChart'), {
+            type: 'bar',
+            data: salesByTimeData,
+            options: { responsive: true, maintainAspectRatio: false }
+        });
 
-        if (document.getElementById('filterSalesBySize').checked) {
-            const sizeSales = calculateSalesBySize(data);
-            salesBySizeChart = new Chart(document.getElementById('salesBySizeChart'), {
-                type: 'pie',
-                data: sizeSales,
-                options: { responsive: true, maintainAspectRatio: false }
-            });
-        }
+        const sizeSales = calculateSalesBySize(data);
+        salesBySizeChart = new Chart(document.getElementById('salesBySizeChart'), {
+            type: 'pie',
+            data: sizeSales,
+            options: { responsive: true, maintainAspectRatio: false }
+        });
 
-        // Display table with appropriate pagination
         displayTable(data);
     }
 
@@ -578,5 +554,14 @@ document.addEventListener("DOMContentLoaded", function () {
             });
             pagination.appendChild(pageButton);
         }
+    }
+
+    function destroyCharts() {
+        if (salesByCategoryChart) salesByCategoryChart.destroy();
+        if (top3HighestSalesChart) top3HighestSalesChart.destroy();
+        if (top3LowestSalesChart) top3LowestSalesChart.destroy();
+        if (salesByQuarterChart) salesByQuarterChart.destroy();
+        if (salesByTimeChart) salesByTimeChart.destroy();
+        if (salesBySizeChart) salesBySizeChart.destroy();
     }
 });
