@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Sales Dashboard</title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+    
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<section>
 
 <header>
     <div class="wrapper">
-        <nav>
+        <nav class="nav-background">
             <div class="logo">Pizza.Co</div>
             <ul>
-                
                 <li><a href="#">Home</a></li>
                 <li><a href="#chart-container">Our Work</a></li>
                 <li><a href="#team-section">About Us</a></li>
@@ -47,10 +52,6 @@
 <section class="analysis-section">
     <div class="wrapper">
         <h2 class="light-heading">Our Analysis</h2>
-        
-
-
-            
             <div class="filter-container">
                 <label for="startDate" >Start Date:</label>
                 <input type="date" id="startDate" min="2015-01-01" max="2015-12-31">
@@ -94,7 +95,7 @@
             <a href="#" class="btn">Learn More</a>
         </div>
         <div id="chart-container">
-            <div class="chart">
+            <div class="chart-avarage">
                 <h3>Top 10 Average Price Pizza Type</h3>
                 <table id="averagePriceTable">
                     <thead>
@@ -159,57 +160,242 @@
 
 </section>
 
-<div class="wrapper">
-    <section id="team-section">
-        <div class="team-card">
-            <div class="info">
-                <h4 class="name">Name</h4>
-                <p class="job-description">Project Leader Data Analytics and Software Engineering with AI</p>
-            </div>
-            <img src="Hero image/Hero Image.png" alt="Team Member">
-        </div>
+<section class="team-section">
+    <div class="wrapper">
+        <div class="swiper mySwiper container">
+            <div class="swiper-wrapper content">
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                        <div class="image">
+                            <img src="images/1.jpg" alt="">
+                        </div>
+                        <div class="media-icons">
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="name-profession">
+                            <span class="name">Nafal</span>
+                            <span class="profession">Job Desc</span>
+                        </div>
+                    </div>
+                </div>
 
-        <div class="team-card">
-            <div class="info">
-                <h4 class="name">Name</h4>
-                <p class="job-description">Project Leader Data Analytics and Software Engineering with AI</p>
-            </div>
-            <img src="Hero image/Hero Image.png" alt="Team Member">
-        </div>
+                <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/2.jpg" alt="">
+                      </div>
 
-        <div class="team-card">
-            <div class="info">
-                <h4 class="name">Name</h4>
-                <p class="job-description">Project Leader Data Analytics and Software Engineering with AI</p>
-            </div>
-            <img src="Hero image/Hero Image.png" alt="Team Member">
-        </div>
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
 
-        <div class="team-card">
-            <div class="info">
-                <h4 class="name">Name</h4>
-                <p class="job-description">Project Leader Data Analytics and Software Engineering with AI</p>
-            </div>
-            <img src="Hero image/Hero Image.png" alt="Team Member">
-        </div>
+                      <div class="name-profession">
+                        <span class="name">Ferdhi</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
 
-        <div class="team-card">
-            <div class="info">
-                <h4 class="name">Name</h4>
-                <p class="job-description">Project Leader Data Analytics and Software Engineering with AI</p>
-            </div>
-            <img src="Hero image/Hero Image.png" alt="Team Member">
-        </div>
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/3.jpg" alt="">
+                      </div>
 
-        <div class="team-card">
-            <div class="info">
-                <h4 class="name">Name</h4>
-                <p class="job-description">Project Leader Data Analytics and Software Engineering with AI</p>
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
+
+                      <div class="name-profession">
+                        <span class="name">Umar</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/4.jpg" alt="">
+                      </div>
+
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
+
+                      <div class="name-profession">
+                        <span class="name">Zora</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/5.jpg" alt="">
+                      </div>
+
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
+
+                      <div class="name-profession">
+                        <span class="name">Erlang</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/6.jpg" alt="">
+                      </div>
+
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
+
+                      <div class="name-profession">
+                        <span class="name">Haura</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/7.jpg" alt="">
+                      </div>
+
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
+
+                      <div class="name-profession">
+                        <span class="name">Lia</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/8.jpg" alt="">
+                      </div>
+
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
+
+                      <div class="name-profession">
+                        <span class="name">Desy</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/9.jpg" alt="">
+                      </div>
+
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
+
+                      <div class="name-profession">
+                        <span class="name">Dila</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/9.jpg" alt="">
+                      </div>
+
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
+
+                      <div class="name-profession">
+                        <span class="name">Arya</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/9.jpg" alt="">
+                      </div>
+
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
+
+                      <div class="name-profession">
+                        <span class="name">Bela</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="swiper-slide card">
+                    <div class="card-content">
+                      <div class="image">
+                        <img src="images/9.jpg" alt="">
+                      </div>
+
+                      <div class="media-icons">
+                        <i class="fab fa-facebook"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-github"></i>
+                      </div>
+
+                      <div class="name-profession">
+                        <span class="name">Tiara</span>
+                        <span class="profession">Job Desc</span>
+                      </div>
+                    </div>
+                  </div>
             </div>
-            <img src="Hero image/Hero Image.png" alt="Team Member">
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
-    </section>
-</div>
+    </div>
+</section>
 
 <footer>
     <div class="wrapper">
@@ -251,6 +437,9 @@
         <p class="copyright">This website is developed by Team 23 Section Surabaya at RevoU © 2024</p>
     </div>
 </footer>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="main.js"></script>

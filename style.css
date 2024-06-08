@@ -38,6 +38,8 @@ footer {
     text-decoration: none;
 }
 
+/* Header */
+
 header {
     background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
     height: 100vh;
@@ -49,24 +51,50 @@ nav {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    width: 100%;
+    width: 1134px;
     top: 0;
-    padding: 0 15px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 36px 0;
     z-index: 100;
+    transition: all 500ms ease;
+    -webkit-transition: all 500ms ease;
+    -moz-transition: all 500ms ease;
+    -ms-transition: all 500ms ease;
+    -o-transition: all 500ms ease;
+}
+
+.nav-background.scrolled{
+    background-color: #6B1110;
+    box-shadow: 0 16px 14px -8px rgba(0, 0, 0, 0.3);
+    border-radius: 0 0 12px 12px;
+    top: 0;
+    right: 8px;
+    left: 8px;
+    padding: 12px;
+    -webkit-border-radius: 0 0 12px 12px;
+    -moz-border-radius: 0 0 12px 12px;
+    -ms-border-radius: 0 0 12px 12px;
+    -o-border-radius: 0 0 12px 12px;
+    transition: background-color 0.3ms ease;
+    -webkit-transition: background-color 0.3ms ease;
+    -moz-transition: background-color 0.3ms ease;
+    -ms-transition: background-color 0.3ms ease;
+    -o-transition: background-color 0.3ms ease;
+    width: 1134px;
+    margin: 0 auto;
+    align-items: center;
 }
 
 nav .logo {
     font-family: "Raleway", sans-serif;
     font-weight: 900;
-    font-size: 24px;
-    color: #6c0000;
+    font-size: 40px;
+    color: #fff;
 }
 
 nav ul {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 60px;
     list-style: none;
     margin: 0;
 }
@@ -75,45 +103,53 @@ nav ul li a {
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     font-size: 16px;
-    color: #000000;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    color: #fff;
     text-decoration: none;
 }
 
+/* Hero Section */
+
 .hero-section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
     width: 100%;
-    text-align: center;
-    padding: 50px 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
 }
 
 .hero-section .left h1 {
-    font-family: "Raleway";
+    font-family: "Raleway", sans-serif;
     font-style: normal;
     font-weight: 900;
-    font-size: 32px;
+    font-size: 50px;
     line-height: 125%;
     color: #fff;
 }
 
-.hero-section .left p {
+.hero-section .left p{
     font-family: "Poppins", sans-serif;
     font-style: normal;
     font-size: 16px;
     line-height: 200%;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom:30px;
 }
 
-.hero-section .right img {
-    width: 100%;
-    max-width: 300px;
+.hero-section .left{
+    width: 457px;
+}
+
+.hero-section .right{
+    align-self: flex-end;
+}
+
+.hero-section .right img{
+    height: 650px;
     vertical-align: middle;
 }
+
+/* End of Hero Section */
 
 .content .chart-box img {
     padding-top: 120px;
@@ -140,31 +176,48 @@ nav ul li a {
 }
 
 .filter-container {
+    align-items: center;
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
 }
 
-.filter-container label {
-    display: inline-block;
-    background-color: #ec8c26;
-    padding: 8px 12px;
-    border-radius: 20px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+.filter-container {
+    background-color: #FAC717;
+    width: 100%;
+    height: 50px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 35px;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+    margin-bottom: 15px !important;
 }
 
-.filter-container label:hover {
-    background-color: #ff6600;
+.filter-container label {
+    display: inline-block;
+    font-family: "Poppins", sans-serif;
+    color:#DC3836;
+    font-size: 16px;
 }
 
 .filter-container input[type="date"],
 .filter-container button {
-    padding: 8px 12px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    height: 35px;
+    padding: 8px 18px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    -webkit-transition: background-color 0.3s ease;
+    -moz-transition: background-color 0.3s ease;
+    -ms-transition: background-color 0.3s ease;
+    -o-transition: background-color 0.3s ease;
 }
 
 .filter-container input[type="date"]:hover,
@@ -175,10 +228,13 @@ nav ul li a {
 .filter-container input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: transparent;
     filter: invert(0.7);
+    -webkit-filter: invert(0.7);
 }
 
 .filter-container button {
-    background-color: #af4c4c;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    background-color:#dc3836;
     color: white;
 }
 
@@ -206,6 +262,37 @@ nav ul li a {
     justify-content: center;
 }
 
+.chart {
+    font-family: "Poppins", sans-serif;
+    color: #6B1110;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+.chart-average {
+
+}
+
+.chart-average {
+    font-family: "Poppins", sans-serif;
+    color: #6B1110;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    padding-bottom: 15px;
+}
+
+.chart-average table{
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.chart-average tr th{
+    font-size: 16px;
+    text-align: center !important;
+}
 #chart-container {
     background-color: #fff;
     border-radius: 8px;
@@ -231,15 +318,20 @@ canvas {
 
 table {
     margin: 0 auto;
-    width: 100%;
-    max-width: 500px;
+    width: 1134px;
     border-collapse: collapse;
     margin-top: 20px;
     background-color: #ffffff;
 }
 
 table, th, td {
-    border: 1px solid black;
+    border-radius: 10px;
+    color: #6b1110;
+    font-family: "Poppins", sans-serif;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 th, td {
@@ -255,16 +347,24 @@ th, td {
 
 #pagination button {
     padding: 5px 10px;
+    width: 35px;
+    height: 35px;
     margin: 0 2px;
-    border: 1px solid #ccc;
     background-color: #f9f9f9;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    color: #6b1110;
     cursor: pointer;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 #pagination button.active {
-    background-color: #ff2600;
+    background-color: #6b1110;
     color: #fff;
-    border: 1px solid #007bff;
 }
 
 label {
@@ -275,68 +375,154 @@ label {
     font-weight: bold;
 }
 
-.analysis-section .light-heading {
-    color: #fff;
-    padding-top: 25px;
-    padding-bottom: 5px;
-    text-align: center;
-}
-
 .analysis-section .btn {
     width: 140px;
     position: relative;
-    align-items: center;
-    right: 50px;
-    left: 50px;
 }
 
-.analysis-section .info h3 {
+.analysis-section .light-heading{
+    font-family: "Poppins", sans-serif;
     color: #fff;
-    padding-left: 25px;
+    font-weight:bold;
+    font-size: 26px;
+    text-align: center;
+    padding-top: 15px;
 }
 
-.analysis-section .info::before {
-    padding-left: 25px;
-}
 
-.analysis-section .chart-container img {
-    padding-top: 63px;
-}
+/* Team Section */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
-.analysis-section .chart-box-rectangle-bottom img {
-    padding-top: 63px;
-}
-
-#team-section {
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
-}
-
-#team-section .team-card {
+.team-section {
     display: flex;
+    align-items: center;
+    background-color: #FAC717;
+    padding-top: 150px;
+    padding-bottom: 80px;
 }
 
-#team-section .team-card .info h4 {
-    font-family: "Raleway", sans-serif;
-    font-size: 24px;
-    line-height: 120%;
-    color: #6b1110;
+.swiper {
+    width: 950px;
+    margin: 0 auto;
 }
 
-.team-section .team-card .info {
-    padding: 24px;
+.card {
+    position: relative;
+    background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
+    border-radius: 20px;
+    height: 400px;
+    margin: 20px 0;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
 }
 
-.team-section .team-card .info p {
-    font-family: "Raleway", sans-serif;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 120%;
-    color: #6b1110;
+.card::before {
+    content: "";
+    position: absolute;
+    height: 40%;
+    width: 100%;
+    background: #DC3836;
+    border-radius: 20px 20px 0 0;
 }
+
+.card .card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+    position: relative;
+    z-index: 100;
+}
+
+.team-section .card .image {
+    height: 140px;
+    width: 140px;
+    border-radius: 20%;
+    padding: 3px;
+    background: #FAC717;
+    margin-top: 30px;
+    justify-content: center;
+}
+
+.team-section .card .image img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20%;
+    border: 3px solid #fff;
+    justify-content: center;
+}
+
+.card .media-icons {
+    position: absolute;
+    top: 12px;
+    right: 94px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.card .media-icons i {
+    color: white;
+    opacity: 0.6;
+    margin-top: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.card .media-icons i:hover {
+    opacity: 1;
+}
+
+.card .name-profession {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    color: white;
+}
+
+.name-profession .name {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.name-profession .profession {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.button button:hover {
+    background: #DC3836;
+}
+
+.swiper-pagination-bullet {
+    height: 7px;
+    width: 26px;
+    border-radius: 25px;
+    background: #6B1110;
+}
+
+
+
+.swiper-button-next,
+  .swiper-button-prev {
+    opacity: 0.7;
+    color: white;
+    background-color: #DC3836;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+
+.swiper-button-next:hover,
+  .swiper-button-prev:hover {
+    opacity: 1;
+    color: white;
+}
+
+/* End of Team Section */ 
 
 footer {
     background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
@@ -358,7 +544,7 @@ footer ul {
     padding-left: 20px;
 }
 
-footer il li {
+footer ul li {
     margin: 16px 0;
 }
 
@@ -414,6 +600,72 @@ footer .copyright {
     color: #fff;
 }
 
+/* Contact Us Form */
+
+.contact-us{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 90px;
+}
+
+.contact-us form{
+    background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
+    display: flex;
+    flex-direction: column;
+    padding: 2vw 4vw;
+    width: 90%;
+    max-width: 600px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.contact-us form h3{
+    color:#fff;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.contact-us form input, form textarea{
+    font-family: "Poppins", sans-serif;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 20px;
+    outline: none;
+    background: white;
+    font-size: 16px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.contact-us form button{
+    padding: 15px;
+    font-family: "Poppins", sans-serif;
+    background: #DC3836;
+    color: white;
+    font-size: 18px;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    width: 150px;
+    margin: 20px auto 0;
+}
+
 #averagePriceTable {
     width: 100%;
     border-collapse: collapse;
@@ -440,516 +692,16 @@ footer .copyright {
     background-color: #ddd;
 }
 
-/* Desktop styles */
-.table-wrapper {
-    overflow-x: auto;
-    width: 100%;
-}
+/* Swipper Team Section Responsive */
 
-/* Responsive Styles */
-@media (max-width: 720px) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    .hero-section {
-        padding: 20px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 26px;
-    }
-
-    .hero-section .right img {
-        max-width: 300px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 300px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 12px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 100px;
+@media (max-width: 768px) {
+    .swiper-slide {
+        width: 350px !important;
     }
 }
 
-@media (max-width: 480px) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    .hero-section {
-        padding: 20px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 24px;
-    }
-
-    .hero-section .right img {
-        max-width: 250px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 250px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 12px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 80px;
-    }
-}
-
-@media (max-width: 360px) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    nav ul li a {
-        font-size: 10px;
-    }
-
-    .hero-section {
-        padding: 15px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 20px;
-    }
-
-    .hero-section .right img {
-        max-width: 180px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .analysis-section {
-        width: 100%;
-    }
-
-    #chart-container {
-        width: 100%;
-        height: auto;
-    }
-
-    #chart-container .chart {
-        margin-bottom: 20px;
-        height: 250px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 10px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 60px;
-    }
-}
-
-@media (max-width: 240px) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 5px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    nav ul li a {
-        font-size: 8px;
-    }
-
-    .hero-section {
-        padding: 10px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 18px;
-    }
-
-    .hero-section .right img {
-        max-width: 150px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 200px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 8px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 50px;
-    }
-}
-
-/* Landscape modes */
-@media (max-width: 720px) and (orientation: landscape) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .hero-section {
-        padding: 20px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 24px;
-    }
-
-    .hero-section .right img {
-        max-width: 200px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 250px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 10px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 80px;
-    }
-}
-
-@media (max-width: 480px) and (orientation: landscape) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .hero-section {
-        padding: 20px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 22px;
-    }
-
-    .hero-section .right img {
-        max-width: 180px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 200px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 10px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 70px;
-    }
-}
-
-@media (max-width: 360px) and (orientation: landscape) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .hero-section {
-        padding: 15px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 20px;
-    }
-
-    .hero-section .right img {
-        max-width: 160px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 180px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 8px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 60px;
-    }
-}
-
-@media (max-width: 240px) and (orientation: landscape) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 5px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .hero-section {
-        padding: 10px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 18px;
-    }
-
-    .hero-section .right img {
-        max-width: 150px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 150px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 8px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 50px;
+@media (max-width: 640px) {
+    .swiper-slide {
+        width: 350px !important;
     }
 }

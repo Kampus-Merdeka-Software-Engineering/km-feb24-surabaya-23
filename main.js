@@ -1,4 +1,46 @@
-// Fungsi untuk menghitung penjualan berdasarkan kategori
+// Fungsi Nav bar //
+const nav = document.querySelector("nav");
+window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 60) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+});
+
+// Fungsi Slider Card Team Section //
+var swiper = new Swiper(".mySwiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    slidesPerGroup: 1,
+    loop: true,
+    loopFillGroupWithBlank: true,
+    pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+    },
+    navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 'auto',
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 'auto',
+            spaceBetween: 30,
+        },
+        1024: {
+            slidesPerView: 3,
+            spaceBetween: 40,
+            slidesPerGroup: 3,
+        },
+    },
+});
+
+// Fungsi untuk menghitung penjualan berdasarkan kategori //
 function calculateSalesByCategory(data) {
     const categories = {};
     data.forEach(order => {
