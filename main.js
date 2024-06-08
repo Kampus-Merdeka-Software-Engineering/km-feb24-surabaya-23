@@ -1,3 +1,4 @@
+
 // Fungsi untuk menghitung penjualan berdasarkan kategori
 function calculateSalesByCategory(data) {
     const categories = {};
@@ -19,16 +20,16 @@ function calculateSalesByCategory(data) {
             label: 'Sales by Category',
             data: values,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)',
-                'rgba(75, 192, 192, 0.2)'
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 206, 86)',
+                'rgb(75, 192, 192)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)'
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 206, 86)',
+                'rgb(75, 192, 192)'
             ],
             borderWidth: 1
         }]
@@ -525,6 +526,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 <td>${item.time_order}</td>
                 <td>${item.size}</td>
                 <td>${item.category}</td>
+                <td>${item.ingredients}</td>
             `;
             tableBody.appendChild(row);
         });
