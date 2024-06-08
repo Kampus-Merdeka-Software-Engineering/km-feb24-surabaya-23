@@ -1,17 +1,15 @@
-/* Base styles */
-:root {
-    --dark-red-color: #6B1110;
-    --light-red-color: #B53736;
-    --yellow-color: #FAC717;
-    --dark-blue-color: #023047;
+:root{
+    --dark-red-color: #6B1110
+    --light-red-color: #B53736
+    --yellow-color: #FAC717
+    --dark-blue-color: #023047
 }
 
 *,
-*::after,
-*::before {
+*::after
+*::before{
     box-sizing: border-box;
 }
-
 body {
     margin: 0;
     font-family: "Raleway", sans-serif;
@@ -28,15 +26,21 @@ footer {
 }
 
 .btn {
-    background-color: #dc3836;
+    background-color:#dc3836;
     color: #fff;
     border-radius: 24px;
-    padding: 16px 32px;
-    display: inline-block;
+    padding-right:32px;
+    padding-left: 32px;
+    padding-top:16px;
+    padding-bottom:16px;
+    display:inline-block;
     font-weight: bold;
     font-size: 14px;
     text-decoration: none;
 }
+
+
+/* Header */
 
 header {
     background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
@@ -49,9 +53,8 @@ nav {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    width: 100%;
-    top: 0;
-    padding: 0 15px;
+    width: 1134px;
+    top: 36px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     z-index: 100;
 }
@@ -59,14 +62,14 @@ nav {
 nav .logo {
     font-family: "Raleway", sans-serif;
     font-weight: 900;
-    font-size: 24px;
+    font-size: 40px;
     color: #6c0000;
 }
 
 nav ul {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 60px;
     list-style: none;
     margin: 0;
 }
@@ -80,56 +83,65 @@ nav ul li a {
     text-decoration: none;
 }
 
+/* Hero Section */
+
 .hero-section {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
     width: 100%;
-    text-align: center;
-    padding: 50px 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
 }
 
 .hero-section .left h1 {
     font-family: "Raleway";
     font-style: normal;
     font-weight: 900;
-    font-size: 32px;
+    font-size: 50px;
     line-height: 125%;
     color: #fff;
 }
 
-.hero-section .left p {
+.hero-section .left p{
     font-family: "Poppins", sans-serif;
     font-style: normal;
     font-size: 16px;
     line-height: 200%;
     color: #fff;
-    margin-bottom: 30px;
+    margin-bottom:30px;
 }
 
-.hero-section .right img {
-    width: 100%;
-    max-width: 300px;
+.hero-section .left{
+    width: 457px;
+}
+
+.hero-section .right{
+    align-self: flex-end;
+}
+
+.hero-section .right img{
+    height: 300;
     vertical-align: middle;
 }
+
+/* The Revenue Section */
 
 .content .chart-box img {
     padding-top: 120px;
 }
 
-.content .description h2 {
+.content .description h2{
     color: #b53736;
     padding-left: 25px;
 }
 
-.content .description p {
+.content .description p{
     color: #b53736;
     padding-left: 25px;
 }
 
-.content::before a {
+.content::before a{
     padding: 75px;
 }
 
@@ -207,7 +219,7 @@ nav ul li a {
 }
 
 #chart-container {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
@@ -215,7 +227,7 @@ nav ul li a {
 }
 
 #chart-container .chart {
-    height: 450px;
+    height: 700px;
     margin-bottom: 20px;
 }
 
@@ -230,11 +242,10 @@ canvas {
 }
 
 table {
+    height: 500px;
     margin: 0 auto;
     width: 100%;
     max-width: 500px;
-    border-collapse: collapse;
-    margin-top: 20px;
     background-color: #ffffff;
 }
 
@@ -247,6 +258,7 @@ th, td {
     text-align: left;
     background-color: #fff;
 }
+
 
 #pagination {
     margin-top: 10px;
@@ -440,75 +452,13 @@ footer .copyright {
     background-color: #ddd;
 }
 
-/* Desktop styles */
-.table-wrapper {
+.table-wrapper .datatable {
     overflow-x: auto;
     width: 100%;
+    word-wrap: break-word; /* Menambahkan word-wrap untuk memastikan teks dalam setiap sel tabel dibungkus ke baris baru jika melebihi lebar kontainer tabel */
 }
 
-/* Responsive Styles */
-@media (max-width: 720px) {
-    .table-wrapper {
-        width: 100%;
-    }
 
-    nav {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    .hero-section {
-        padding: 20px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 26px;
-    }
-
-    .hero-section .right img {
-        max-width: 300px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 300px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 12px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 100px;
-    }
-}
 
 @media (max-width: 480px) {
     .table-wrapper {
@@ -516,7 +466,7 @@ footer .copyright {
     }
 
     nav {
-        width: 100%;
+        max-width: 500px;
         padding: 0 10px;
     }
 
