@@ -39,6 +39,43 @@ footer {
     text-decoration: none;
 }
 
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px; 
+    text-align: center; 
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
 /* Header */
 
 header {
@@ -51,45 +88,21 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+   padding: 5px;
     position: fixed;
     width: 1134px;
-    top: 0;
-    padding: 36px 0;
+    top: 36px;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
     z-index: 100;
-    transition: all 500ms ease;
-    -webkit-transition: all 500ms ease;
-    -moz-transition: all 500ms ease;
-    -ms-transition: all 500ms ease;
-    -o-transition: all 500ms ease;
-}
-
-.nav-background.scrolled{
-    background-color: #6B1110;
-    box-shadow: 0 16px 14px -8px rgba(0, 0, 0, 0.3);
-    border-radius: 0 0 12px 12px;
-    top: 0;
-    right: 8px;
-    left: 8px;
-    padding: 12px;
-    -webkit-border-radius: 0 0 12px 12px;
-    -moz-border-radius: 0 0 12px 12px;
-    -ms-border-radius: 0 0 12px 12px;
-    -o-border-radius: 0 0 12px 12px;
-    transition: background-color 0.3ms ease;
-    -webkit-transition: background-color 0.3ms ease;
-    -moz-transition: background-color 0.3ms ease;
-    -ms-transition: background-color 0.3ms ease;
-    -o-transition: background-color 0.3ms ease;
-    width: 1134px;
-    margin: 0 auto;
-    align-items: center;
+    background-color: white;
+    border-radius: 20px;
 }
 
 nav .logo {
     font-family: "Raleway", sans-serif;
     font-weight: 900;
-    font-size: 40px;
-    color: #fff;
+    font-size: 30px;
+    color: #6c0000;
 }
 
 nav ul {
@@ -104,7 +117,8 @@ nav ul li a {
     font-family: "Poppins", sans-serif;
     font-weight: bold;
     font-size: 16px;
-    color: #fff;
+    color: #000000;
+    /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); */
     text-decoration: none;
 }
 
@@ -120,7 +134,7 @@ nav ul li a {
 }
 
 .hero-section .left h1 {
-    font-family: "Raleway", sans-serif;
+    font-family: "Raleway";
     font-style: normal;
     font-weight: 900;
     font-size: 50px;
@@ -128,29 +142,32 @@ nav ul li a {
     color: #fff;
 }
 
-.hero-section .left p{
+.hero-section .left p {
     font-family: "Poppins", sans-serif;
     font-style: normal;
     font-size: 16px;
     line-height: 200%;
     color: #fff;
-    margin-bottom:30px;
+    margin-bottom: 30px;
 }
 
-.hero-section .left{
+.hero-section .left {
     width: 457px;
 }
 
-.hero-section .right{
-    align-self: flex-end;
+.hero-section .right {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
 }
 
-.hero-section .right img{
-    height: 650px;
-    vertical-align: middle;
+.hero-section .right img {
+    max-width: 100%;
+    height: auto;
 }
 
-/* End of Hero Section */
+
+/* The Revenue Section */
 
 .content .chart-box img {
     padding-top: 120px;
@@ -182,9 +199,6 @@ nav ul li a {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-}
-
-.filter-container {
     background-color: #FAC717;
     width: 100%;
     height: 50px;
@@ -200,25 +214,24 @@ nav ul li a {
 
 .filter-container label {
     display: inline-block;
-    font-family: "Poppins", sans-serif;
-    color:#DC3836;
-    font-size: 16px;
+    background-color: #ec8c26;
+    padding: 8px 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.filter-container label:hover {
+    background-color: #ff6600;
 }
 
 .filter-container input[type="date"],
 .filter-container button {
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    height: 20px;
-    padding: 8px 18px;
+    padding: 8px 12px;
     border: none;
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    -webkit-transition: background-color 0.3s ease;
-    -moz-transition: background-color 0.3s ease;
-    -ms-transition: background-color 0.3s ease;
-    -o-transition: background-color 0.3s ease;
 }
 
 .filter-container input[type="date"]:hover,
@@ -229,20 +242,15 @@ nav ul li a {
 .filter-container input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: transparent;
     filter: invert(0.7);
-    -webkit-filter: invert(0.7);
 }
 
 .filter-container button {
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    height: 35px;
-    background-color:#dc3836;
+    background-color: #af4c4c;
     color: white;
 }
 
 .filter-container button:hover {
     background-color: #ff0000;
-
 }
 
 .filter-container button:active {
@@ -263,42 +271,6 @@ nav ul li a {
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
-}
-
-.chart {
-    font-family: "Poppins", sans-serif;
-    color: #6B1110;
-    text-align: center;
-    font-size: 18px;
-    font-weight: bold;
-    padding-bottom: 15px;
-}
-
-.chart-average {
-    font-family: "Poppins", sans-serif;
-    color: #6B1110;
-    text-align: center;
-    font-size: 18px;
-    font-weight: 600;
-    padding-bottom: 15px;
-}
-
-.chart-average table{
-    font-size: 14px;
-    font-weight: normal;
-}
-
-.chart-avarage h3{
-    font-family: "poppins", sans-serif;
-    text-align: center;
-    color: #6B1110;
-    font-weight: bold;
-    font-size: 18px;
-
-}
-
-.chart-average tr th{
-    font-size: 18px;
 }
 
 #chart-container {
@@ -324,13 +296,14 @@ canvas {
     height: 10px;
 }
 
-
-.chart-7 table {
-    font-size: 12px;
-    height: 1134px;
+table {
+    font-size: 11px;
+    height: 100%;
+    max-height: 100px;
     margin: 0 auto;
-    width: 750px;
-    margin-top: 20px;
+    width: 100%;
+    max-width: 570px;
+    background-color: #ffffff;
 }
 
 .chart-7 th{
@@ -358,20 +331,14 @@ canvas {
     -o-border-radius: 10px;
 }
 
-
-th, td {
-    padding: 10px;
-    text-align: left;
-    color: #6B1110;
-    background-color: #fff;
+table, th, td {
+    border: 1px solid black;
 }
 
-.chart-7 h3{
-    font-family: "poppins", sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    color: #6B1110;
-    text-align: center;
+th, td {
+    padding: 8px;
+    text-align: left;
+    background-color: #fff;
 }
 
 #chart-container .chart-7{
@@ -385,24 +352,16 @@ th, td {
 
 #pagination button {
     padding: 5px 10px;
-    width: 35px;
-    height: 35px;
     margin: 0 2px;
+    border: 1px solid #ccc;
     background-color: #f9f9f9;
-    font-family: "Poppins", sans-serif;
-    font-weight: bold;
-    color: #6b1110;
     cursor: pointer;
-    border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
 }
 
 #pagination button.active {
-    background-color: #6b1110;
+    background-color: #ff2600;
     color: #fff;
+    border: 1px solid #007bff;
 }
 
 label {
@@ -413,22 +372,38 @@ label {
     font-weight: bold;
 }
 
+.analysis-section .light-heading {
+    color: #fff;
+    padding-top: 25px;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
 .analysis-section .btn {
     width: 140px;
     position: relative;
+    align-items: center;
+    right: 50px;
+    left: 50px;
 }
 
-.analysis-section .light-heading{
-    font-family: "Poppins", sans-serif;
+.analysis-section .info h3 {
     color: #fff;
-    font-weight:bold;
-    font-size: 26px;
-    text-align: center;
-    padding-top: 15px;
+    padding-left: 25px;
 }
 
+.analysis-section .info::before {
+    padding-left: 25px;
+}
 
-/* Team Section */
+.analysis-section .chart-container img {
+    padding-top: 63px;
+}
+
+.analysis-section .chart-box-rectangle-bottom img {
+    padding-top: 63px;
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 .team-section {
@@ -562,82 +537,6 @@ label {
 
 /* End of Team Section */ 
 
-footer {
-    background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
-    margin-top: 100px;
-    padding: 70px 20px;
-}
-
-footer a {
-    text-decoration: none;
-    color: #fff;
-}
-
-footer h3 {
-    color: #FAC717;
-}
-
-footer ul {
-    list-style: none;
-    padding-left: 20px;
-}
-
-footer ul li {
-    margin: 16px 0;
-}
-
-footer .links-container {
-    display: grid;
-    grid-template-columns: 2fr 2fr 3fr;
-}
-
-footer .social {
-    margin-left: 20px;
-}
-
-footer.social a {
-    margin: 28px;
-}
-
-footer form {
-    margin-left: 20px;
-    margin-top: 16px;
-    position: relative;
-}
-
-footer form input {
-    font-family: "Poppins", sans-serif;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 200%;
-    border-radius: 8px;
-    color: black;
-    padding: 8px 4px;
-    border: none;
-    width: 100%;
-}
-
-footer form .submit-btn {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #023047;
-    border-radius: 8px;
-    padding: 8px 32px;
-    border: 0;
-    font-family: "Poppins";
-    font-weight: normal;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
-}
-
-footer .copyright {
-    margin-top: 28px;
-    color: #fff;
-}
-
 /* Contact Us Form */
 
 .contact-us{
@@ -704,6 +603,82 @@ footer .copyright {
     margin: 20px auto 0;
 }
 
+footer {
+    background: linear-gradient(180deg, #b53736 0%, #6b1110 100%);
+    margin-top: 100px;
+    padding: 70px 20px;
+}
+
+footer a {
+    text-decoration: none;
+    color: #fff;
+}
+
+footer h3 {
+    color: #FAC717;
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 20px;
+}
+
+footer il li {
+    margin: 16px 0;
+}
+
+footer .links-container {
+    display: grid;
+    grid-template-columns: 2fr 2fr 3fr;
+}
+
+footer .social {
+    margin-left: 20px;
+}
+
+footer.social a {
+    margin: 28px;
+}
+
+footer form {
+    margin-left: 20px;
+    margin-top: 16px;
+    position: relative;
+}
+
+footer form input {
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 200%;
+    border-radius: 8px;
+    color: black;
+    padding: 8px 32px;
+    border: none;
+    width: 100%;
+}
+
+footer form .submit-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #023047;
+    border-radius: 8px;
+    padding: 8px 32px;
+    border: 0;
+    font-family: "Poppins";
+    font-weight: normal;
+    font-size: 16px;
+    color: #fff;
+    cursor: pointer;
+}
+
+footer .copyright {
+    margin-top: 28px;
+    color: #fff;
+}
+
 #averagePriceTable {
     width: 100%;
     border-collapse: collapse;
@@ -730,120 +705,455 @@ footer .copyright {
     background-color: #ddd;
 }
 
-/* Swipper Team Section Responsive */
-/* End of swipper Team Section Responsive */
+.table-wrapper .datatable {
+    overflow-x: auto;
+    width: 100%;
+    word-wrap: break-word; /* Menambahkan word-wrap untuk memastikan teks dalam setiap sel tabel dibungkus ke baris baru jika melebihi lebar kontainer tabel */
+}
 
-@media (max-width: 1100px) {
-    .btn {
-        padding: 12px 32px;
+
+
+@media (max-width: 480px) {
+    .table-wrapper {
+        width: 100%;
     }
 
-    .wrapper {
-        padding: 0 100px;
-    }
     nav {
-        width: 722px;
-        height: 61px;
-        left: 29px;
-        padding: 36px 100px;
-        align-items: center;
-    }
-
-    nav .logo{
-        left: 80px;
+        max-width: 500px;
+        padding: 0 10px;
     }
 
     nav ul {
-        gap: 35px;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
     }
 
-    nav ul li a{
-        font-weight: 14px;
-    }
-
-    .nav-background.scrolled{
-        padding: 36px 100px;
-        width: 722px;
-        height: 25px;
-        align-items: center;
-    }
-
-    /* Hero Section */
-
-    header,
-    .hero-section,
-    header .wrapper {
-        max-height: 1000px;
-    }
-
-    header {
-        height: 1194px;
-    }
-
-    .hero-section .right img{
-        width: 574px;
-        height: 667px;
+    nav ul li {
+        margin: 5px 0;
     }
 
     .hero-section {
+        padding: 20px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 24px;
+    }
+
+    .hero-section .right img {
+        max-width: 250px;
+        height: auto;
+    }
+
+    .chart-section {
         flex-direction: column;
+        align-items: center;
     }
 
-    .hero-section .left{
+    #chart-container .chart {
+        height: 250px;
         width: 100%;
-        padding-right: 125px;
-        padding-top: 40px;
+        overflow-x: auto;
     }
 
-    .hero-section .right{
-        position: absolute;
-        bottom: 295px;
-        padding-right: 25px;
-    }
-
-    /* End of ipad Layout for Hero Section */
-
-    /* Start of Revenue Section */
-
-    .content .chart-box img{
+    table {
+        font-size: 12px;
         width: 100%;
     }
 
-    /* Start of Analysis Section */
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
 
-    .analysis-section .chart-container {
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 360px) {
+    .table-wrapper {
         width: 100%;
     }
 
-    .analysis-section .chart-box-rectangle-top {
+    nav {
         width: 100%;
+        padding: 0 10px;
     }
 
-    .analysis-section .chart-box-rectangle-bottom {
-        width: 100%;
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    nav ul li a {
+        font-size: 10px;
+    }
+
+    .hero-section {
+        padding: 15px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 20px;
+    }
+
+    .hero-section .right img {
+        max-width: 180px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: column;
+        align-items: center;
     }
 
     .analysis-section {
-        height: 3000px;
+        width: 100%;
     }
 
-    /* End of Analysis Section */
-
-    /* Start of Footer */
-
-    footer .links-container{
-        grid-template-columns: 1fr 1fr;
+    #chart-container {
+        width: 100%;
+        height: auto;
     }
 
-    footer .links-container .links:last-child{
-        grid-column: 1 / 3;
+    #chart-container .chart {
+        margin-bottom: 20px;
+        height: 250px;
+        width: 100%;
+        overflow-x: auto;
     }
 
-    footer form input{
-        width: 521px;
+    table {
+        font-size: 10px;
+        width: 100%;
     }
 
-    footer form .submit-btn{
-        right: 210px;
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 60px;
     }
 }
+
+@media (max-width: 240px) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    nav ul li a {
+        font-size: 8px;
+    }
+
+    .hero-section {
+        padding: 10px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 18px;
+    }
+
+    .hero-section .right img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 200px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 8px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 50px;
+    }
+}
+
+/* Landscape modes */
+@media (max-width: 720px) and (orientation: landscape) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-section {
+        padding: 20px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 24px;
+    }
+
+    .hero-section .right img {
+        max-width: 200px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 250px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 10px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-section {
+        padding: 20px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 22px;
+    }
+
+    .hero-section .right img {
+        max-width: 180px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 200px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 10px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 70px;
+    }
+}
+
+@media (max-width: 360px) and (orientation: landscape) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-section {
+        padding: 15px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 20px;
+    }
+
+    .hero-section .right img {
+        max-width: 160px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 180px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 8px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 60px;
+    }
+}
+
+@media (max-width: 240px) and (orientation: landscape) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-section {
+        padding: 10px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 18px;
+    }
+
+    .hero-section .right img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 150px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 8px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 50px;
+    }
+}
+

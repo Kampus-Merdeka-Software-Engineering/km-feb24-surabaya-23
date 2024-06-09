@@ -4,63 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pizza Sales Dashboard</title>
-    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-
     <!-- Fontawesome CDN Link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
-
-    <link rel="stylesheet" href="style.css">
 </head>
-<section>
+<body>
+
+    <div id="welcomeModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Welcome to Our Website</p>
+        </div>
+    </div>
 
 <header>
     <div class="wrapper">
-        <nav class="nav-background">
+        <nav>
             <div class="logo">Pizza.Co</div>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#chart-container">Our Work</a></li>
-                <li><a href="#team-section">About Us</a></li>
-                <li><a href="contactus.html" class="btn">Contact Us</a></li>
+                <li><a href="#home" data-target="#home">Home</a></li>
+                <li><a href="#analysis" data-target="#analysis">Dashboard</a></li>
+                <li><a href="#about-us" data-target="#about-us">About Us</a></li>
+                <li><a href="#contact-us" class="btn" data-target="#contact-us">Contact Us</a></li>
             </ul>
         </nav>
 
-        <div class="hero-section">
+        <div class="hero-section" id="home">
             <div class="left">
                 <h1 class="light-heading">Revenue of <br> Pizza Place Sales</h1>
                 <p>Data Analyst Pizza Place Sales 2015</p>
-                <a href="#" class="btn">Contact Us</a>
+                <a href="#contact-us" class="btn" data-target="#contact-us">Contact Us</a>
             </div>
 
             <div class="right">
-                <img src="Hero image/Hero Image.png" alt="Hero Image"/>
+                <img src="Hero image/Hero Image.png" alt="Hero Image" width="50%"/>
             </div>
         </div>
     </div>
 </header>
 
-<div class="wrapper">
-    <section class="the-revenue-section">
-        <div class="description">
-            <h2 class="red-heading">Revenue</h2>
-            <p>Data Analyst Pizza Place Sales 2015</p>
-        </div>
-    </section>
-</div>
-
 <section class="analysis-section">
     <div class="wrapper">
-        <h2 class="light-heading">Our Analysis</h2>
-            <div class="filter-container">
-                <label for="startDate" >Start Date:</label>
-                <input type="date" id="startDate" min="2015-01-01" max="2015-12-31">
-                <label for="endDate">End Date:</label>
-                <input type="date" id="endDate" min="2015-01-01" max="2015-12-31">
-                <button id="applyFilter">Apply Filter</button>
-                <button id="resetFilter">Reset Filter</button>
-            </div>
-
+        <h2 class="light-heading">Dashboard</h2>
+        <div class="filter-container" id="analysis">
+            <label for="startDate">Start Date:</label>
+            <input type="date" id="startDate" min="2015-01-01" max="2015-12-31">
+            <label for="endDate">End Date:</label>
+            <input type="date" id="endDate" min="2015-01-01" max="2015-12-31">
+            <button id="applyFilter">Apply Filter</button>
+            <button id="resetFilter">Reset Filter</button>
+        </div>
 
         <div id="chart-container">
             <div class="chart">
@@ -70,11 +64,10 @@
             <a href="#" class="btn">Learn More</a>
         </div>
 
-
         <div id="chart-container">
             <div class="chart">
                 <h3>Pizza Size</h3>
-                <canvas class="chart-info" id="salesBySizeChart"></canvas>
+                <canvas class="chart-info" id="salesBySizeChart"></canvas> 
             </div>
             <a href="#" class="btn">Learn More</a>
         </div>
@@ -94,21 +87,25 @@
             </div>
             <a href="#" class="btn">Learn More</a>
         </div>
+        
         <div id="chart-container">
-            <div class="chart-avarage">
-                <h3>Top 10 Average Price Pizza Type</h3>
-                <table id="averagePriceTable">
-                    <thead>
-                        <tr>
-                            <th>Pizza Type ID</th>
-                            <th>Average Price</th>
-                        </tr>
-                    </thead>
-                    <tbody></tbody>
-                </table>
+            <div class="chart">
+                <h3>Pizza Sales by Type</h3>
+                <div class="table-wrapper">
+                    <table id="averagePriceTable">
+                        <thead>
+                            <tr>
+                                <th>Pizza Type ID</th>
+                                <th>Average Price</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
             </div>
             <a href="#" class="btn">Learn More</a>
-            </div>
+        </div>
+        
         <div id="chart-container">
             <div class="chart">
                 <h3>Orders by Day of Week</h3>
@@ -163,14 +160,14 @@
     </div>
 </section>
 
-<section class="team-section">
+<section class="team-section" id="about-us">
     <div class="wrapper">
         <div class="swiper mySwiper container">
             <div class="swiper-wrapper content">
                 <div class="swiper-slide card">
                     <div class="card-content">
                         <div class="image">
-                            <img src="images/1.jpg" alt="">
+                            <img src="Asset/Kebutuhan Foto Capstone Project/Nafal.jpg" alt="">
                         </div>
                         <div class="media-icons">
                             <i class="fab fa-facebook"></i>
@@ -179,7 +176,7 @@
                         </div>
                         <div class="name-profession">
                             <span class="name">Nafal</span>
-                            <span class="profession">Job Desc</span>
+                            <span class="profession">Project Leader</span>
                         </div>
                     </div>
                 </div>
@@ -187,7 +184,7 @@
                 <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/2.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Ferdian Maulid Rahmawan.jpg" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -198,7 +195,7 @@
 
                       <div class="name-profession">
                         <span class="name">Ferdhi</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Front Engineer</span>
                       </div>
                     </div>
                   </div>
@@ -206,7 +203,7 @@
                   <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/3.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Umar_Wira_Hadi_Aspar_Amini.jpg" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -217,7 +214,7 @@
 
                       <div class="name-profession">
                         <span class="name">Umar</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Front Engineer</span>
                       </div>
                     </div>
                   </div>
@@ -225,7 +222,7 @@
                   <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/4.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Zora_zairina.jpg" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -236,7 +233,7 @@
 
                       <div class="name-profession">
                         <span class="name">Zora</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Front Engineer</span>
                       </div>
                     </div>
                   </div>
@@ -244,7 +241,7 @@
                   <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/5.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Erlang.jpg" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -255,7 +252,7 @@
 
                       <div class="name-profession">
                         <span class="name">Erlang</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Team Leader / Front Engineer</span>
                       </div>
                     </div>
                   </div>
@@ -263,7 +260,7 @@
                   <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/6.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Haura Hidayati Yanuar.jpg" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -274,7 +271,7 @@
 
                       <div class="name-profession">
                         <span class="name">Haura</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Pitch Deck</span>
                       </div>
                     </div>
                   </div>
@@ -282,7 +279,7 @@
                   <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/7.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Rahmalia.jpg" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -293,7 +290,7 @@
 
                       <div class="name-profession">
                         <span class="name">Lia</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Quality Assurance</span>
                       </div>
                     </div>
                   </div>
@@ -301,7 +298,7 @@
                   <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/8.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Desy Fitriah Rahmah.jpg" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -312,7 +309,7 @@
 
                       <div class="name-profession">
                         <span class="name">Desy</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Quality Assurance</span>
                       </div>
                     </div>
                   </div>
@@ -320,7 +317,7 @@
                   <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/9.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Nurfadilah Rahman.jpg" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -331,7 +328,7 @@
 
                       <div class="name-profession">
                         <span class="name">Dila</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Quality Assurance</span>
                       </div>
                     </div>
                   </div>
@@ -339,7 +336,7 @@
                   <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/9.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Muhammad Arya Ilham Hajiri.jpg" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -350,7 +347,7 @@
 
                       <div class="name-profession">
                         <span class="name">Arya</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Pitch Deck</span>
                       </div>
                     </div>
                   </div>
@@ -358,7 +355,7 @@
                   <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/9.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Lailatun Nabilah_.jpg" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -369,7 +366,7 @@
 
                       <div class="name-profession">
                         <span class="name">Bela</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Pitch Deck</span>
                       </div>
                     </div>
                   </div>
@@ -377,7 +374,7 @@
                   <div class="swiper-slide card">
                     <div class="card-content">
                       <div class="image">
-                        <img src="images/9.jpg" alt="">
+                        <img src="Asset/Kebutuhan Foto Capstone Project/Tiara Puspitasari_.webp" alt="">
                       </div>
 
                       <div class="media-icons">
@@ -388,7 +385,7 @@
 
                       <div class="name-profession">
                         <span class="name">Tiara</span>
-                        <span class="profession">Job Desc</span>
+                        <span class="profession">Deployment</span>
                       </div>
                     </div>
                   </div>
@@ -400,14 +397,29 @@
     </div>
 </section>
 
-<footer>
+<section>
+<div class="wrapper" id="contact-us">
+    <div class="contact-us">
+        <form onsubmit="sendEmail(); reset(); return false;">
+            <h3>Contact Us</h3>
+            <input type="text" id="name" placeholder="Your Name" required>
+            <input type="email" id="email" placeholder="Email id" required>
+            <input type="text" id="phone" placeholder="Phone no." required>
+            <textarea id="message" rows="4" placeholder="How can we help you?" required></textarea>
+            <button type="Submit">Send</button>
+        </form>
+    </div>
+    <script src="https://smtpjs.com/v3/smtp.js"></script>
+</section>
+
+<footer id="footer">
     <div class="wrapper">
         <div class="links-container">
             <div class="links">
                 <h3>Quick Links</h3>
                 <ul>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#about-us" data-target="#about-us">About Us</a></li>
+                    <li><a href="#contact-us" data-target="#contact-us">Contact Us</a></li>
                     <li><a href="#">Privacy Policy</a></li>
                     <li><a href="#">Terms & Conditions</a></li>
                 </ul>
@@ -440,10 +452,9 @@
         <p class="copyright">This website is developed by Team 23 Section Surabaya at RevoU © 2024</p>
     </div>
 </footer>
-
-<!-- Swiper JS -->
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+ <!-- Swiper JS -->
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script src="./script.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="main.js"></script>
 </body>

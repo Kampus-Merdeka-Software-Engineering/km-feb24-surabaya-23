@@ -1,12 +1,34 @@
-// Fungsi Nav bar //
-const nav = document.querySelector("nav");
-window.addEventListener("scroll", () => {
-    if (window.pageYOffset > 60) {
-        nav.classList.add("scrolled");
-    } else {
-        nav.classList.remove("scrolled");
-    }
+// animasi scrolldown navbar
+document.querySelectorAll('a[data-target]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        const targetId = this.getAttribute('data-target');
+        const targetElement = document.querySelector(targetId);
+
+        window.scrollTo({
+            top: targetElement.offsetTop,
+            behavior: 'smooth'
+        });
+    });
 });
+
+window.onload = function() {
+    var welcomeModal = document.getElementById("welcomeModal");
+    welcomeModal.style.display = "block";
+
+    // Close the modal when the user clicks on <span> (x)
+    document.getElementsByClassName("close")[0].onclick = function() {
+        welcomeModal.style.display = "none";
+    }
+
+    // Close the modal when the user clicks anywhere outside of the modal
+    window.onclick = function(event) {
+        if (event.target == welcomeModal) {
+            welcomeModal.style.display = "none";
+        }
+    }
+}
 
 // Fungsi Slider Card Team Section //
 var swiper = new Swiper(".mySwiper", {
@@ -40,7 +62,8 @@ var swiper = new Swiper(".mySwiper", {
     },
 });
 
-// Fungsi untuk menghitung penjualan berdasarkan kategori //
+
+// Fungsi untuk menghitung penjualan berdasarkan kategori
 function calculateSalesByCategory(data) {
     const categories = {};
     data.forEach(order => {
@@ -82,12 +105,15 @@ function calculateSalesByCategory(data) {
 // Fungsi untuk menghitung top 3 penjualan tertinggi
 function calculateTop3HighestSales(data) {
     const pizzaSales = {};
+
     data.forEach(order => {
         const pizzaType = order.pizza_type_id;
+        const quantity = parseInt(order.quantity);
+
         if (pizzaSales[pizzaType]) {
-            pizzaSales[pizzaType] += parseFloat(order.price) * parseInt(order.quantity);
+            pizzaSales[pizzaType] += quantity;
         } else {
-            pizzaSales[pizzaType] = parseFloat(order.price) * parseInt(order.quantity);
+            pizzaSales[pizzaType] = quantity;
         }
     });
 
@@ -101,7 +127,7 @@ function calculateTop3HighestSales(data) {
     const top3HighestSalesData = {
         labels: labels,
         datasets: [{
-            label: 'Top 3 Highest Sales',
+            label: 'Top 3 Highest Sales (by Quantity)',
             data: values,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -120,15 +146,18 @@ function calculateTop3HighestSales(data) {
     return top3HighestSalesData;
 }
 
+
 // Fungsi untuk menghitung top 3 penjualan terendah
 function calculateTop3LowestSales(data) {
     const pizzaSales = {};
     data.forEach(order => {
         const pizzaType = order.pizza_type_id;
+        const quantity = parseInt(order.quantity);
+
         if (pizzaSales[pizzaType]) {
-            pizzaSales[pizzaType] += parseFloat(order.price) * parseInt(order.quantity);
+            pizzaSales[pizzaType] += quantity;
         } else {
-            pizzaSales[pizzaType] = parseFloat(order.price) * parseInt(order.quantity);
+            pizzaSales[pizzaType] = quantity;
         }
     });
 
@@ -142,17 +171,17 @@ function calculateTop3LowestSales(data) {
     const top3LowestSalesData = {
         labels: labels,
         datasets: [{
-            label: 'Top 3 Lowest Sales',
+            label: 'Top 3 Lowest Sales (by Quantity)',
             data: values,
             backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-                'rgba(255, 206, 86, 0.2)'
+                'rgba(255, 159, 64, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)'
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)'
+                'rgba(255, 159, 64, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)'
             ],
             borderWidth: 1
         }]
@@ -160,6 +189,7 @@ function calculateTop3LowestSales(data) {
 
     return top3LowestSalesData;
 }
+
 
 // Fungsi untuk menghitung rata-rata harga pizza
 function calculateSalesByQuarter(data) {
@@ -608,3 +638,24 @@ document.addEventListener("DOMContentLoaded", function () {
         if (salesBySizeChart) salesBySizeChart.destroy();
     }
 });
+
+// Fungsi Form contact us
+document.getElementById("emailForm").addEventListener("submit", function(event){
+    event.preventDefault(); // Mencegah halaman refresh
+
+    var email = document.getElementById("email").value;
+    var subject = document.getElementById("subject").value;
+    var message = document.getElementById("message").value;
+
+    Email.send({
+        Host: "smtp.elasticemail.com",
+        Username: "revousurabaya23@gmail.com",
+        Password: "87CA9E2B1DC917BA8453E12DA2D05C27D4D1",
+        To: 'recipient@example.com',
+        From: email,
+        Subject: subject,
+        Body: message
+    }).then(
+      message => alert("Email successfully sent!")
+    );
+   });
