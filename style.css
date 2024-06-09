@@ -1,17 +1,15 @@
-/* Base styles */
-:root {
-    --dark-red-color: #6B1110;
-    --light-red-color: #B53736;
-    --yellow-color: #FAC717;
-    --dark-blue-color: #023047;
+:root{
+    --dark-red-color: #6B1110
+    --light-red-color: #B53736
+    --yellow-color: #FAC717
+    --dark-blue-color: #023047
 }
 
 *,
-*::after,
-*::before {
+*::after
+*::before{
     box-sizing: border-box;
 }
-
 body {
     margin: 0;
     font-family: "Raleway", sans-serif;
@@ -28,16 +26,23 @@ footer {
 }
 
 .btn {
-    background-color: #dc3836;
+    background-color:#dc3836;
     color: #fff;
     border-radius: 24px;
-    padding: 16px 32px;
-    display: inline-block;
+    padding-right:32px;
+    padding-left: 32px;
+    padding-top:16px;
+    padding-bottom:16px;
+    display:inline-block;
     font-weight: bold;
     font-size: 14px;
     text-decoration: none;
 }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
 /* Header */
 
 header {
@@ -52,8 +57,13 @@ nav {
     align-items: center;
     position: fixed;
     width: 1134px;
+<<<<<<< HEAD
     top: 0;
     padding: 36px 0;
+=======
+    top: 36px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+>>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
     z-index: 100;
     transition: all 500ms ease;
     -webkit-transition: all 500ms ease;
@@ -88,7 +98,11 @@ nav .logo {
     font-family: "Raleway", sans-serif;
     font-weight: 900;
     font-size: 40px;
+<<<<<<< HEAD
     color: #fff;
+=======
+    color: #6c0000;
+>>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
 }
 
 nav ul {
@@ -145,27 +159,35 @@ nav ul li a {
 }
 
 .hero-section .right img{
+<<<<<<< HEAD
     height: 650px;
     vertical-align: middle;
 }
 
 /* End of Hero Section */
+=======
+    height: 300;
+    vertical-align: middle;
+}
+
+/* The Revenue Section */
+>>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
 
 .content .chart-box img {
     padding-top: 120px;
 }
 
-.content .description h2 {
+.content .description h2{
     color: #b53736;
     padding-left: 25px;
 }
 
-.content .description p {
+.content .description p{
     color: #b53736;
     padding-left: 25px;
 }
 
-.content::before a {
+.content::before a{
     padding: 75px;
 }
 
@@ -294,7 +316,7 @@ nav ul li a {
     text-align: center !important;
 }
 #chart-container {
-    background-color: #fff;
+    background-color: #ffffff;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 20px;
@@ -302,7 +324,7 @@ nav ul li a {
 }
 
 #chart-container .chart {
-    height: 450px;
+    height: 700px;
     margin-bottom: 20px;
 }
 
@@ -317,10 +339,18 @@ canvas {
 }
 
 table {
+    font-size: 11px;
+    height: 100%;
+    max-height: 100px;
     margin: 0 auto;
+<<<<<<< HEAD
     width: 1134px;
     border-collapse: collapse;
     margin-top: 20px;
+=======
+    width: 100%;
+    max-width: 570px;
+>>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
     background-color: #ffffff;
 }
 
@@ -338,6 +368,10 @@ th, td {
     padding: 8px;
     text-align: left;
     background-color: #fff;
+}
+
+#chart-container .chart-7{
+    height: 1700px;
 }
 
 #pagination {
@@ -692,6 +726,7 @@ footer .copyright {
     background-color: #ddd;
 }
 
+<<<<<<< HEAD
 /* Swipper Team Section Responsive */
 
 @media (max-width: 768px) {
@@ -703,5 +738,456 @@ footer .copyright {
 @media (max-width: 640px) {
     .swiper-slide {
         width: 350px !important;
+=======
+.table-wrapper .datatable {
+    overflow-x: auto;
+    width: 100%;
+    word-wrap: break-word; /* Menambahkan word-wrap untuk memastikan teks dalam setiap sel tabel dibungkus ke baris baru jika melebihi lebar kontainer tabel */
+}
+
+
+
+@media (max-width: 480px) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        max-width: 500px;
+        padding: 0 10px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    .hero-section {
+        padding: 20px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 24px;
+    }
+
+    .hero-section .right img {
+        max-width: 250px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 250px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 12px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 360px) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    nav ul li a {
+        font-size: 10px;
+    }
+
+    .hero-section {
+        padding: 15px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 20px;
+    }
+
+    .hero-section .right img {
+        max-width: 180px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .analysis-section {
+        width: 100%;
+    }
+
+    #chart-container {
+        width: 100%;
+        height: auto;
+    }
+
+    #chart-container .chart {
+        margin-bottom: 20px;
+        height: 250px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 10px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 60px;
+    }
+}
+
+@media (max-width: 240px) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    nav ul li a {
+        font-size: 8px;
+    }
+
+    .hero-section {
+        padding: 10px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 18px;
+    }
+
+    .hero-section .right img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 200px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 8px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 50px;
+    }
+}
+
+/* Landscape modes */
+@media (max-width: 720px) and (orientation: landscape) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-section {
+        padding: 20px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 24px;
+    }
+
+    .hero-section .right img {
+        max-width: 200px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 250px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 10px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 80px;
+    }
+}
+
+@media (max-width: 480px) and (orientation: landscape) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-section {
+        padding: 20px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 22px;
+    }
+
+    .hero-section .right img {
+        max-width: 180px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 200px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 10px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 70px;
+    }
+}
+
+@media (max-width: 360px) and (orientation: landscape) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 10px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-section {
+        padding: 15px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 20px;
+    }
+
+    .hero-section .right img {
+        max-width: 160px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 180px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 8px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 60px;
+    }
+}
+
+@media (max-width: 240px) and (orientation: landscape) {
+    .table-wrapper {
+        width: 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 5px;
+    }
+
+    nav ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .hero-section {
+        padding: 10px;
+        height: auto;
+    }
+
+    .hero-section .left h1 {
+        font-size: 18px;
+    }
+
+    .hero-section .right img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .chart-section {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    #chart-container .chart {
+        height: 150px;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        font-size: 8px;
+        width: 100%;
+    }
+
+    footer .links-container {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section {
+        grid-template-columns: 1fr;
+    }
+
+    #team-section .team-card img {
+        max-width: 50px;
+>>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
     }
 }
