@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Fungsi Nav bar //
 const nav = document.querySelector("nav");
 window.addEventListener("scroll", () => {
@@ -42,10 +41,6 @@ var swiper = new Swiper(".mySwiper", {
 });
 
 // Fungsi untuk menghitung penjualan berdasarkan kategori //
-=======
-
-// Fungsi untuk menghitung penjualan berdasarkan kategori
->>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
 function calculateSalesByCategory(data) {
     const categories = {};
     data.forEach(order => {

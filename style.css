@@ -39,10 +39,6 @@ footer {
     text-decoration: none;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
 /* Header */
 
 header {
@@ -57,13 +53,8 @@ nav {
     align-items: center;
     position: fixed;
     width: 1134px;
-<<<<<<< HEAD
     top: 0;
     padding: 36px 0;
-=======
-    top: 36px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
->>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
     z-index: 100;
     transition: all 500ms ease;
     -webkit-transition: all 500ms ease;
@@ -98,11 +89,7 @@ nav .logo {
     font-family: "Raleway", sans-serif;
     font-weight: 900;
     font-size: 40px;
-<<<<<<< HEAD
     color: #fff;
-=======
-    color: #6c0000;
->>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
 }
 
 nav ul {
@@ -159,19 +146,11 @@ nav ul li a {
 }
 
 .hero-section .right img{
-<<<<<<< HEAD
     height: 650px;
     vertical-align: middle;
 }
 
 /* End of Hero Section */
-=======
-    height: 300;
-    vertical-align: middle;
-}
-
-/* The Revenue Section */
->>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
 
 .content .chart-box img {
     padding-top: 120px;
@@ -230,7 +209,7 @@ nav ul li a {
 .filter-container button {
     font-family: "Poppins", sans-serif;
     font-weight: bold;
-    height: 35px;
+    height: 20px;
     padding: 8px 18px;
     border: none;
     border-radius: 20px;
@@ -256,12 +235,14 @@ nav ul li a {
 .filter-container button {
     font-family: "Poppins", sans-serif;
     font-weight: bold;
+    height: 35px;
     background-color:#dc3836;
     color: white;
 }
 
 .filter-container button:hover {
     background-color: #ff0000;
+
 }
 
 .filter-container button:active {
@@ -294,10 +275,6 @@ nav ul li a {
 }
 
 .chart-average {
-
-}
-
-.chart-average {
     font-family: "Poppins", sans-serif;
     color: #6B1110;
     text-align: center;
@@ -311,10 +288,19 @@ nav ul li a {
     font-weight: normal;
 }
 
-.chart-average tr th{
-    font-size: 16px;
-    text-align: center !important;
+.chart-avarage h3{
+    font-family: "poppins", sans-serif;
+    text-align: center;
+    color: #6B1110;
+    font-weight: bold;
+    font-size: 18px;
+
 }
+
+.chart-average tr th{
+    font-size: 18px;
+}
+
 #chart-container {
     background-color: #ffffff;
     border-radius: 8px;
@@ -338,36 +324,54 @@ canvas {
     height: 10px;
 }
 
-table {
-    font-size: 11px;
-    height: 100%;
-    max-height: 100px;
+
+.chart-7 table {
+    font-size: 12px;
+    height: 1134px;
     margin: 0 auto;
-<<<<<<< HEAD
-    width: 1134px;
-    border-collapse: collapse;
+    width: 750px;
     margin-top: 20px;
-=======
-    width: 100%;
-    max-width: 570px;
->>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
-    background-color: #ffffff;
 }
 
-table, th, td {
+.chart-7 th{
+    font-size: 14px;
+    background-color: #6B1110;
     border-radius: 10px;
-    color: #6b1110;
-    font-family: "Poppins", sans-serif;
+    width: 5%;
+    color: #fff;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
 }
 
+.chart-7 td{
+    background-color: #6b1110;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 11px;
+    font-family: "Poppins", sans-serif;
+    font-weight: normal;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+
 th, td {
-    padding: 8px;
+    padding: 10px;
     text-align: left;
+    color: #6B1110;
     background-color: #fff;
+}
+
+.chart-7 h3{
+    font-family: "poppins", sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #6B1110;
+    text-align: center;
 }
 
 #chart-container .chart-7{
@@ -608,7 +612,7 @@ footer form input {
     line-height: 200%;
     border-radius: 8px;
     color: black;
-    padding: 8px 32px;
+    padding: 8px 4px;
     border: none;
     width: 100%;
 }
@@ -726,468 +730,120 @@ footer .copyright {
     background-color: #ddd;
 }
 
-<<<<<<< HEAD
 /* Swipper Team Section Responsive */
+/* End of swipper Team Section Responsive */
 
-@media (max-width: 768px) {
-    .swiper-slide {
-        width: 350px !important;
-    }
-}
-
-@media (max-width: 640px) {
-    .swiper-slide {
-        width: 350px !important;
-=======
-.table-wrapper .datatable {
-    overflow-x: auto;
-    width: 100%;
-    word-wrap: break-word; /* Menambahkan word-wrap untuk memastikan teks dalam setiap sel tabel dibungkus ke baris baru jika melebihi lebar kontainer tabel */
-}
-
-
-
-@media (max-width: 480px) {
-    .table-wrapper {
-        width: 100%;
+@media (max-width: 1100px) {
+    .btn {
+        padding: 12px 32px;
     }
 
+    .wrapper {
+        padding: 0 100px;
+    }
     nav {
-        max-width: 500px;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    .hero-section {
-        padding: 20px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 24px;
-    }
-
-    .hero-section .right img {
-        max-width: 250px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: column;
+        width: 722px;
+        height: 61px;
+        left: 29px;
+        padding: 36px 100px;
         align-items: center;
     }
 
-    #chart-container .chart {
-        height: 250px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 12px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 80px;
-    }
-}
-
-@media (max-width: 360px) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 10px;
+    nav .logo{
+        left: 80px;
     }
 
     nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        gap: 35px;
     }
 
-    nav ul li {
-        margin: 5px 0;
+    nav ul li a{
+        font-weight: 14px;
     }
 
-    nav ul li a {
-        font-size: 10px;
+    .nav-background.scrolled{
+        padding: 36px 100px;
+        width: 722px;
+        height: 25px;
+        align-items: center;
+    }
+
+    /* Hero Section */
+
+    header,
+    .hero-section,
+    header .wrapper {
+        max-height: 1000px;
+    }
+
+    header {
+        height: 1194px;
+    }
+
+    .hero-section .right img{
+        width: 574px;
+        height: 667px;
     }
 
     .hero-section {
-        padding: 15px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 20px;
-    }
-
-    .hero-section .right img {
-        max-width: 180px;
-        height: auto;
-    }
-
-    .chart-section {
         flex-direction: column;
-        align-items: center;
+    }
+
+    .hero-section .left{
+        width: 100%;
+        padding-right: 125px;
+        padding-top: 40px;
+    }
+
+    .hero-section .right{
+        position: absolute;
+        bottom: 295px;
+        padding-right: 25px;
+    }
+
+    /* End of ipad Layout for Hero Section */
+
+    /* Start of Revenue Section */
+
+    .content .chart-box img{
+        width: 100%;
+    }
+
+    /* Start of Analysis Section */
+
+    .analysis-section .chart-container {
+        width: 100%;
+    }
+
+    .analysis-section .chart-box-rectangle-top {
+        width: 100%;
+    }
+
+    .analysis-section .chart-box-rectangle-bottom {
+        width: 100%;
     }
 
     .analysis-section {
-        width: 100%;
+        height: 3000px;
     }
 
-    #chart-container {
-        width: 100%;
-        height: auto;
-    }
-
-    #chart-container .chart {
-        margin-bottom: 20px;
-        height: 250px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 10px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 60px;
-    }
-}
-
-@media (max-width: 240px) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 5px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    nav ul li {
-        margin: 5px 0;
-    }
-
-    nav ul li a {
-        font-size: 8px;
-    }
-
-    .hero-section {
-        padding: 10px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 18px;
-    }
-
-    .hero-section .right img {
-        max-width: 150px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 200px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 8px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 50px;
-    }
-}
-
-/* Landscape modes */
-@media (max-width: 720px) and (orientation: landscape) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .hero-section {
-        padding: 20px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 24px;
-    }
-
-    .hero-section .right img {
-        max-width: 200px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 250px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 10px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 80px;
-    }
-}
+    /* End of Analysis Section */
 
-@media (max-width: 480px) and (orientation: landscape) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .hero-section {
-        padding: 20px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 22px;
-    }
-
-    .hero-section .right img {
-        max-width: 180px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 200px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 10px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 70px;
-    }
-}
-
-@media (max-width: 360px) and (orientation: landscape) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 10px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .hero-section {
-        padding: 15px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 20px;
-    }
-
-    .hero-section .right img {
-        max-width: 160px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 180px;
-        width: 100%;
-        overflow-x: auto;
-    }
-
-    table {
-        font-size: 8px;
-        width: 100%;
-    }
-
-    footer .links-container {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section {
-        grid-template-columns: 1fr;
-    }
-
-    #team-section .team-card img {
-        max-width: 60px;
-    }
-}
-
-@media (max-width: 240px) and (orientation: landscape) {
-    .table-wrapper {
-        width: 100%;
-    }
-
-    nav {
-        width: 100%;
-        padding: 0 5px;
-    }
-
-    nav ul {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-    }
-
-    .hero-section {
-        padding: 10px;
-        height: auto;
-    }
-
-    .hero-section .left h1 {
-        font-size: 18px;
-    }
-
-    .hero-section .right img {
-        max-width: 150px;
-        height: auto;
-    }
-
-    .chart-section {
-        flex-direction: row;
-        align-items: center;
-    }
-
-    #chart-container .chart {
-        height: 150px;
-        width: 100%;
-        overflow-x: auto;
-    }
+    /* Start of Footer */
 
-    table {
-        font-size: 8px;
-        width: 100%;
+    footer .links-container{
+        grid-template-columns: 1fr 1fr;
     }
 
-    footer .links-container {
-        grid-template-columns: 1fr;
+    footer .links-container .links:last-child{
+        grid-column: 1 / 3;
     }
 
-    #team-section {
-        grid-template-columns: 1fr;
+    footer form input{
+        width: 521px;
     }
 
-    #team-section .team-card img {
-        max-width: 50px;
->>>>>>> e9aaa19d1c9b098c24850bf83d491927f1b6eaaf
+    footer form .submit-btn{
+        right: 210px;
     }
 }
