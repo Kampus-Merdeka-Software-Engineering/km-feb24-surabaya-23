@@ -1157,3 +1157,32 @@ footer .copyright {
     }
 }
 
+.nav-toggle {
+    display: none;
+    cursor: pointer;
+}
+
+.nav-toggle i {
+    font-size: 1.5em;
+}
+
+body.nav-open nav ul {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 768px) {
+    .nav-toggle {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    body.nav-open nav ul {
+        display: flex;
+    }
+}
