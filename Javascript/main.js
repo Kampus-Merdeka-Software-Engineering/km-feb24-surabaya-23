@@ -1,4 +1,4 @@
-// animasi scrolldown navbar
+
 document.querySelectorAll('a[data-target]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -13,6 +13,20 @@ document.querySelectorAll('a[data-target]').forEach(anchor => {
     });
 });
 
+
+
+// animasi scrolldown navbar //
+const nav = document.querySelector("nav");
+window.addEventListener("scroll", () => {
+    if (window.pageYOffset > 60) {
+        nav.classList.add("scrolled");
+    } else {
+        nav.classList.remove("scrolled");
+    }
+});
+
+
+// Fungsi Modal //
 window.onload = function() {
     var welcomeModal = document.getElementById("welcomeModal");
     welcomeModal.style.display = "block";
@@ -55,6 +69,11 @@ var swiper = new Swiper(".mySwiper", {
             spaceBetween: 30,
         },
         1024: {
+            slidesPerView: 2,
+            spaceBetween: 40,
+            slidesPerGroup: 2,
+        },
+        1518: {
             slidesPerView: 3,
             spaceBetween: 40,
             slidesPerGroup: 3,
