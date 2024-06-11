@@ -39,17 +39,36 @@ footer {
     text-decoration: none;
 }
 
+/* Modal styles */
 .modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
     left: 0;
     top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; 
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.4); 
 }
+
+.modal-content {
+    font-family: "Poppins", sans-serif;
+    max-width: 700px;
+    border-radius: 20px;
+    font-size: 18px;
+    color: #6B1110;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.modal-content h2{
+    text-align: center;
+}
+
 
 .modal-content {
     background-color: #fefefe;
@@ -57,9 +76,22 @@ footer {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 500px;
-    text-align: center;
 }
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+/*End of Modal Style*/
 
 .close {
     color: #aaa;
@@ -676,7 +708,7 @@ footer ul li {
 
 footer .links-container {
     display: grid;
-    grid-template-columns: 2fr 2fr 3fr;
+    grid-template-columns: 2fr 4fr;
 }
 
 footer .social {
@@ -687,45 +719,12 @@ footer.social a {
     margin: 28px;
 }
 
-footer form {
-    margin-left: 20px;
-    margin-top: 16px;
-    position: relative;
-}
-
-footer form input {
+footer .copyright{
+    color: #fff;
     font-family: "Poppins", sans-serif;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 200%;
-    border-radius: 8px;
-    color: black;
-    padding: 8px 32px;
-    border: none;
-    width: 100%;
 }
 
-footer form .submit-btn {
-    position: absolute;
-    right: 5px;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #023047;
-    border-radius: 8px;
-    padding: 8px 32px;
-    border: 0;
-    font-family: "Poppins";
-    font-weight: normal;
-    font-size: 16px;
-    color: #fff;
-    cursor: pointer;
-}
-
-footer .copyright {
-    margin-top: 28px;
-    color: #fff;
-}
-
+/* Analysis Section */
 #averagePriceTable {
     width: 100%;
     border-collapse: collapse;
@@ -847,7 +846,7 @@ footer .copyright {
     /* Start of Footer */
 
     footer .links-container{
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 2fr;
     }
 
     footer .links-container .links:last-child{

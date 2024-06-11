@@ -15,6 +15,7 @@ document.querySelectorAll('a[data-target]').forEach(anchor => {
 
 
 
+
 // animasi scrolldown navbar //
 const nav = document.querySelector("nav");
 window.addEventListener("scroll", () => {
@@ -26,23 +27,57 @@ window.addEventListener("scroll", () => {
 });
 
 
-// Fungsi Modal //
 window.onload = function() {
     var welcomeModal = document.getElementById("welcomeModal");
     welcomeModal.style.display = "block";
 
-    // Close the modal when the user clicks on <span> (x)
+    // Close the welcome modal when the user clicks on <span> (x)
     document.getElementsByClassName("close")[0].onclick = function() {
         welcomeModal.style.display = "none";
     }
 
-    // Close the modal when the user clicks anywhere outside of the modal
+    // Close the welcome modal when the user clicks anywhere outside of the modal
     window.onclick = function(event) {
         if (event.target == welcomeModal) {
             welcomeModal.style.display = "none";
         }
     }
+
+    // Get all modal buttons
+    const modalButtons = document.querySelectorAll('.modal-button');
+
+    // Iterate over each button
+    modalButtons.forEach(button => {
+        // Get the modal id from the data attribute
+        const modalId = button.getAttribute('data-modal');
+        const modal = document.getElementById(modalId);
+
+        // When the button is clicked, open the modal
+        button.onclick = function() {
+            modal.style.display = "block";
+        }
+
+        // Get the <span> element that closes the modal
+        const span = modal.querySelector('.close');
+
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function() {
+            modal.style.display = "none";
+        }
+    });
+
+    // Close any modal when the user clicks anywhere outside of the modal content
+    window.onclick = function(event) {
+        modalButtons.forEach(button => {
+            const modalId = button.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        });
+    }
 }
+
 
 // Fungsi Slider Card Team Section //
 var swiper = new Swiper(".mySwiper", {
