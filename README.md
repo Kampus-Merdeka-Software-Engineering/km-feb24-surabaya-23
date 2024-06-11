@@ -1,1 +1,1 @@
-https://km-feb24-surabaya-23.vercel.app/
+https://kampus-merdeka-software-engineering.github.io/km-feb24-surabaya-23/
